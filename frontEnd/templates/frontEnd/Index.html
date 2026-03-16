@@ -1,0 +1,658 @@
+{% extends "frontEnd/base.html" %}
+{% load static %}
+{% block title %}Cristian Paul Guillen — Developer & BSIT Student{% endblock %}
+{% block content %}
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero__grid">
+    <div class="hero__left">
+      <div class="hero__tag reveal">
+        <span class="pulse-dot"></span> Available for opportunities
+      </div>
+      <h1 class="hero__heading reveal">
+        <span class="hero__line1">CRISTIAN</span>
+        <span class="hero__line2">PAUL<em class="accent"> GUILLEN</em></span>
+      </h1>
+      <p class="hero__sub reveal">
+        <span id="typed-text"></span><span class="caret">|</span>
+      </p>
+      <p class="hero__desc reveal">
+        3rd Year BSIT student at <strong>NORSU</strong> crafting clean code and digital experiences
+        from Bayawan City, Negros Oriental.
+      </p>
+      <div class="hero__btns reveal">
+        <a href="#projects" class="btn btn--accent">View My Work</a>
+        <a href="#contact" class="btn btn--outline">Let's Talk</a>
+        <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn btn--ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+      <div class="hero__socials reveal">
+        <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="hero__social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/chan2s
+        </a>
+      </div>
+    </div>
+    <div class="hero__right reveal">
+      <div class="hero__avatar-wrap">
+        <div class="hero__avatar">
+          <span class="avatar__initials">CPG</span>
+        </div>
+        <div class="hero__badge hero__badge--1">
+          <span class="badge-num">3rd</span>
+          <span class="badge-txt">Year BSIT</span>
+        </div>
+        <div class="hero__badge hero__badge--2">
+          <span class="badge-num">6+</span>
+          <span class="badge-txt">Technologies</span>
+        </div>
+        <div class="hero__deco-ring"></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll-cue">
+    <span>scroll down</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-bar__inner container">
+    <div class="stat-item">
+      <span class="stat-num" data-count="6">0</span>
+      <span class="stat-label">Technologies</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="3">0</span>
+      <span class="stat-label">Years Studying IT</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="4">0</span>
+      <span class="stat-label">Projects Built</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-count="100">0</span>
+      <span class="stat-label">% Passion</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">01</span>
+      <span class="section-line"></span>
+      <span class="section-title">About Me</span>
+    </div>
+    <div class="about__grid">
+      <div class="about__visual reveal">
+        <div class="about__photo-frame">
+          <div class="about__photo-inner">
+            <span class="about__mono-initial">CPG</span>
+          </div>
+          <div class="about__frame-accent"></div>
+        </div>
+        <div class="about__quick-facts">
+          <div class="qf-item">
+            <span class="qf-icon">🎂</span>
+            <div><span class="qf-label">Birthday</span><span class="qf-value">Aug 16, 2004</span></div>
+          </div>
+          <div class="qf-item">
+            <span class="qf-icon">📍</span>
+            <div><span class="qf-label">Location</span><span class="qf-value">Bayawan City, PH</span></div>
+          </div>
+          <div class="qf-item">
+            <span class="qf-icon">🎓</span>
+            <div><span class="qf-label">Degree</span><span class="qf-value">BSIT @ NORSU</span></div>
+          </div>
+          <div class="qf-item">
+            <span class="qf-icon">💼</span>
+            <div><span class="qf-label">Status</span><span class="qf-value open">Open to Work</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="about__content reveal">
+        <h2 class="about__heading">
+          I build things for the <span class="accent">web</span> and beyond.
+        </h2>
+        <p>Hi there! I'm <strong>Cristian Paul Guillen</strong>, a 3rd-year Bachelor of Science in Information Technology student at <strong>Negros Oriental State University</strong>. I grew up in Villareal, Bayawan City — a small town that taught me resourcefulness and a love for problem-solving.</p>
+        <p>My journey into tech started in high school, driven by curiosity about how digital things work. Today I build web applications, write clean code, and continuously expand my skill set. I'm currently deepening my knowledge in Python while honing my existing skills in C++, PHP, Java, and front-end technologies.</p>
+        <p>I believe great software is built with both technical skill and creative thinking. I'm eager to contribute to real-world projects and grow as a developer.</p>
+
+        <div class="about__education">
+          <h3>Education Timeline</h3>
+          <div class="edu-timeline">
+            <div class="edu-item">
+              <span class="edu-year">2011–2016</span>
+              <div class="edu-details">
+                <strong>Villareal Elementary School</strong>
+                <span>Villareal, Bayawan City</span>
+              </div>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">2017–2021</span>
+              <div class="edu-details">
+                <strong>Bayawan National High School</strong>
+                <span>Junior High School</span>
+              </div>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">2021–2022</span>
+              <div class="edu-details">
+                <strong>Bayawan National High School</strong>
+                <span>Senior High School</span>
+              </div>
+            </div>
+            <div class="edu-item edu-item--current">
+              <span class="edu-year">2022–Now</span>
+              <div class="edu-details">
+                <strong>Negros Oriental State University</strong>
+                <span>BSIT — 3rd Year <span class="badge-current">Current</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__ctas">
+          <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn btn--accent">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
+          <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--outline">
+            View GitHub →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">02</span>
+      <span class="section-line"></span>
+      <span class="section-title">Services</span>
+    </div>
+    <p class="section-desc reveal">What I can build and deliver for you.</p>
+
+    <div class="services__grid">
+      <div class="service-card reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 12h6"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <p>Building responsive, functional websites using HTML, CSS, JavaScript, and PHP. From static pages to dynamic web apps.</p>
+        <ul class="service-card__stack">
+          <li>HTML/CSS</li><li>JavaScript</li><li>PHP</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Backend Development</h3>
+        <p>Creating server-side logic, database interaction, and APIs using PHP and Java. Building robust systems that power applications.</p>
+        <ul class="service-card__stack">
+          <li>PHP</li><li>Java</li><li>MySQL</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Algorithm & Logic</h3>
+        <p>Designing and implementing efficient algorithms and data structures in C++ and Java. Problem solving for competitive and academic use.</p>
+        <ul class="service-card__stack">
+          <li>C++</li><li>Java</li><li>Python</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 22v-4h6v4M9 7h1M9 11h6M9 15h4"/></svg>
+        </div>
+        <h3>Desktop Applications</h3>
+        <p>Developing basic desktop solutions and utilities using Java. Building GUIs and logic-heavy applications for academic and personal use.</p>
+        <ul class="service-card__stack">
+          <li>Java</li><li>C++</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     PROJECTS
+══════════════════════════════════════════ -->
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">03</span>
+      <span class="section-line"></span>
+      <span class="section-title">Featured Projects</span>
+    </div>
+    <p class="section-desc reveal">A curated selection of work — each with a story behind it.</p>
+
+    <div class="projects__grid">
+
+      <!-- Project 1 -->
+      <article class="project-card project-card--featured reveal">
+        <div class="project-card__visual">
+          <div class="project-card__mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-content mockup-content--blue">
+              <div class="mc-row mc-row--wide"></div>
+              <div class="mc-row"></div>
+              <div class="mc-grid">
+                <div class="mc-box"></div><div class="mc-box"></div><div class="mc-box"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-tag">Web App</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">MySQL</span>
+          </div>
+          <h3>Student Information System</h3>
+          <div class="case-study">
+            <div class="case-study__item">
+              <strong>Problem</strong>
+              <p>Manual student record management was error-prone and time-consuming for the department.</p>
+            </div>
+            <div class="case-study__item">
+              <strong>Process</strong>
+              <p>Built a PHP/MySQL CRUD system with role-based access for admins and students, featuring search and report generation.</p>
+            </div>
+            <div class="case-study__item">
+              <strong>Result</strong>
+              <p>Reduced record retrieval time by ~70% and eliminated data duplication issues.</p>
+            </div>
+          </div>
+          <div class="project-card__links">
+            <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--sm btn--accent">View on GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card reveal">
+        <div class="project-card__visual">
+          <div class="project-card__mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-content mockup-content--green">
+              <div class="mc-row mc-row--wide"></div>
+              <div class="mc-row mc-row--med"></div>
+              <div class="mc-row"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-tag">CLI</span>
+            <span class="project-tag">C++</span>
+          </div>
+          <h3>Library Management CLI</h3>
+          <p class="project-card__summary">A command-line library system in C++ implementing linked lists, file I/O, and search algorithms to manage book records efficiently.</p>
+          <div class="project-card__links">
+            <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card reveal">
+        <div class="project-card__visual">
+          <div class="project-card__mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-content mockup-content--amber">
+              <div class="mc-row mc-row--wide"></div>
+              <div class="mc-row mc-row--med"></div>
+              <div class="mc-row"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-tag">Web</span>
+            <span class="project-tag">HTML/CSS/JS</span>
+          </div>
+          <h3>Personal Portfolio Website</h3>
+          <p class="project-card__summary">This portfolio — a fully responsive, modern site built with Django templates, vanilla JS, and custom CSS. No libraries, just clean craft.</p>
+          <div class="project-card__links">
+            <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card reveal">
+        <div class="project-card__visual">
+          <div class="project-card__mockup">
+            <div class="mockup-bar"><span></span><span></span><span></span></div>
+            <div class="mockup-content mockup-content--purple">
+              <div class="mc-row mc-row--wide"></div>
+              <div class="mc-row mc-row--med"></div>
+              <div class="mc-row"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card__info">
+          <div class="project-card__meta">
+            <span class="project-tag">Desktop</span>
+            <span class="project-tag">Java</span>
+          </div>
+          <h3>Inventory System (Java)</h3>
+          <p class="project-card__summary">A Java Swing desktop app for basic inventory management — add, update, delete, and search product records with a clean GUI.</p>
+          <div class="project-card__links">
+            <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--sm btn--outline">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="projects__cta reveal">
+      <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--outline btn--lg">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        See All Projects on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SKILLS
+══════════════════════════════════════════ -->
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">04</span>
+      <span class="section-line"></span>
+      <span class="section-title">Tech Stack & Skills</span>
+    </div>
+
+    <div class="skills__wrapper">
+      <div class="skills__col reveal">
+        <h3 class="skills__col-title">Technical Skills</h3>
+        <div class="skill-bar-list">
+          <div class="skill-bar">
+            <div class="skill-bar__header">
+              <span>C++</span><span>85%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar__header">
+              <span>HTML / CSS</span><span>90%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar__header">
+              <span>JavaScript</span><span>75%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar__header">
+              <span>PHP</span><span>80%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar__header">
+              <span>Java</span><span>78%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="78"></div></div>
+          </div>
+          <div class="skill-bar skill-bar--learning">
+            <div class="skill-bar__header">
+              <span>Python <span class="learning-badge">Learning</span></span><span>40%</span>
+            </div>
+            <div class="skill-bar__track"><div class="skill-bar__fill" data-width="40"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills__col reveal">
+        <h3 class="skills__col-title">Professional Skills</h3>
+        <div class="soft-skills">
+          <div class="soft-skill">
+            <div class="soft-skill__icon">🧩</div>
+            <div>
+              <strong>Problem Solving</strong>
+              <p>Breaking complex challenges into manageable solutions through logical thinking.</p>
+            </div>
+          </div>
+          <div class="soft-skill">
+            <div class="soft-skill__icon">🤝</div>
+            <div>
+              <strong>Team Collaboration</strong>
+              <p>Working effectively in academic project teams, communicating clearly and meeting deadlines.</p>
+            </div>
+          </div>
+          <div class="soft-skill">
+            <div class="soft-skill__icon">📚</div>
+            <div>
+              <strong>Continuous Learning</strong>
+              <p>Self-driven learner constantly exploring new technologies and best practices.</p>
+            </div>
+          </div>
+          <div class="soft-skill">
+            <div class="soft-skill__icon">🎯</div>
+            <div>
+              <strong>Attention to Detail</strong>
+              <p>Writing clean, well-documented code with a focus on correctness and readability.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tools-section">
+          <h4>Tools & Environments</h4>
+          <div class="tools-grid">
+            <span class="tool-chip">VS Code</span>
+            <span class="tool-chip">Git</span>
+            <span class="tool-chip">GitHub</span>
+            <span class="tool-chip">MySQL</span>
+            <span class="tool-chip">Django</span>
+            <span class="tool-chip">XAMPP</span>
+            <span class="tool-chip">Linux</span>
+            <span class="tool-chip">Windows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════ -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">05</span>
+      <span class="section-line"></span>
+      <span class="section-title">Testimonials</span>
+    </div>
+    <p class="section-desc reveal">What classmates and peers say about working with me.</p>
+
+    <div class="testimonials__grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__quote">"</div>
+        <p>"Cristian is one of the most reliable and dedicated members of our project group. His C++ and PHP skills saved us countless debugging hours. He always goes above and beyond."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-avatar">JD</div>
+          <div>
+            <strong>Juan Dela Cruz</strong>
+            <span>BSIT Classmate, NORSU</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__quote">"</div>
+        <p>"What sets Cristian apart is his ability to understand the full picture — not just the code but the problem itself. He built our team's web system from scratch and it worked flawlessly."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <strong>Maria Reyes</strong>
+            <span>Group Mate, Web Systems Class</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__quote">"</div>
+        <p>"Cristian has an impressive eye for UI and a solid grasp of backend logic. He brought real structure to our capstone pre-study, and his documentation was top-notch."</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-avatar">KB</div>
+          <div>
+            <strong>Karl Buenaventura</strong>
+            <span>Capstone Group Member, NORSU</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BLOG PREVIEW
+══════════════════════════════════════════ -->
+<section class="section blog" id="blog">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">06</span>
+      <span class="section-line"></span>
+      <span class="section-title">Articles & Notes</span>
+    </div>
+    <p class="section-desc reveal">Thoughts on tech, learning, and development.</p>
+    <div class="blog__grid">
+      <article class="blog-card reveal">
+        <div class="blog-card__tag">C++</div>
+        <h3>Understanding Pointers in C++: A Visual Approach</h3>
+        <p>Pointers confused me for months. Here's the mental model that finally made them click — with diagrams and simple examples.</p>
+        <span class="blog-card__date">March 2026</span>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card__tag">Web Dev</div>
+        <h3>Building My First PHP CRUD App — Lessons Learned</h3>
+        <p>From spaghetti code to structured MVC patterns. What I wish I knew before starting my first database-driven project.</p>
+        <span class="blog-card__date">February 2026</span>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card__tag">Python</div>
+        <h3>Why I Started Learning Python as My 6th Language</h3>
+        <p>Coming from C++ and Java, Python's philosophy felt almost too simple. Here's what surprised me most in the first 30 days.</p>
+        <span class="blog-card__date">January 2026</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="section-num">07</span>
+      <span class="section-line"></span>
+      <span class="section-title">Get In Touch</span>
+    </div>
+    <div class="contact__grid">
+      <div class="contact__left reveal">
+        <h2 class="contact__heading">
+          Let's build something <span class="accent">together.</span>
+        </h2>
+        <p>I'm open to internship opportunities, freelance projects, academic collaborations, or just a great conversation about tech. Reach out through the form or any of the channels below.</p>
+
+        <ul class="contact__channels">
+          <li>
+            <div class="channel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <span class="channel-label">Email</span>
+              <a href="mailto:cpguillen@email.com" class="channel-value">cpguillen@email.com</a>
+            </div>
+          </li>
+          <li>
+            <div class="channel-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </div>
+            <div>
+              <span class="channel-label">GitHub</span>
+              <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="channel-value">github.com/chan2s</a>
+            </div>
+          </li>
+          <li>
+            <div class="channel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="channel-label">Location</span>
+              <span class="channel-value">Villareal, Bayawan City, Negros Oriental</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="contact__availability">
+          <span class="avail-dot"></span>
+          Currently available for part-time work and internships.
+        </div>
+      </div>
+
+      <form class="contact__form reveal" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic...</option>
+            <option>Internship Opportunity</option>
+            <option>Project Collaboration</option>
+            <option>Freelance Work</option>
+            <option>Just Saying Hi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--accent btn--full" id="submitBtn">
+          <span id="btnText">Send Message</span>
+          <svg id="btnIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
