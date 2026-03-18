@@ -12,18 +12,18 @@
       <div class="hero__tag reveal">
         <span class="pulse-dot"></span> Available for opportunities
       </div>
-      <h1 class="hero__heading reveal">
+      <h1 class="hero__heading reveal reveal-delay-1">
         <span class="hero__line1">CRISTIAN</span>
-        <span class="hero__line2">PAUL<em class="accent"> GUILLEN</em></span>
+        <span class="hero__line2">PAUL GUILLEN</span>
       </h1>
-      <p class="hero__sub reveal">
+      <p class="hero__sub reveal reveal-delay-2">
         <span id="typed-text"></span><span class="caret">|</span>
       </p>
-      <p class="hero__desc reveal">
+      <p class="hero__desc reveal reveal-delay-3">
         3rd Year BSIT student at <strong>NORSU</strong> crafting clean code and digital experiences
         from Bayawan City, Negros Oriental.
       </p>
-      <div class="hero__btns reveal">
+      <div class="hero__btns reveal reveal-delay-4">
         <a href="#projects" class="btn btn--accent">View My Work</a>
         <a href="#contact" class="btn btn--outline">Let's Talk</a>
         <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn btn--ghost">
@@ -31,30 +31,46 @@
           Resume
         </a>
       </div>
-      <div class="hero__socials reveal">
+      <div class="hero__socials reveal reveal-delay-4">
         <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="hero__social-link">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           github.com/chan2s
         </a>
       </div>
     </div>
+
     <div class="hero__right reveal">
-      <div class="hero__avatar-wrap">
-        <div class="hero__avatar">
-          <span class="avatar__initials">CPG</span>
+      <div class="hero__profile-card">
+        <div class="profile-glow"></div>
+
+        <!-- Floating Badges -->
+        <div class="profile-badge profile-badge--1">
+          <span class="profile-badge__num">3rd</span>
+          <span>Year BSIT</span>
         </div>
-        <div class="hero__badge hero__badge--1">
-          <span class="badge-num">3rd</span>
-          <span class="badge-txt">Year BSIT</span>
+        <div class="profile-badge profile-badge--2">
+          <span class="profile-badge__num">6+</span>
+          <span>Technologies</span>
         </div>
-        <div class="hero__badge hero__badge--2">
-          <span class="badge-num">6+</span>
-          <span class="badge-txt">Technologies</span>
+
+        <!-- Profile Photo Card -->
+        <div class="profile-card__photo-wrap">
+          {# ── REPLACE src with your actual photo path: ── #}
+          {# <img src="{% static 'frontEnd/img/profile.jpg' %}" alt="Cristian Paul Guillen" class="profile-card__photo"/> #}
+
+          {# ── Placeholder shown until photo is uploaded ── #}
+        <img src="{% static 'img/profile1.png' %}" .../>
+
+          <!-- Name overlay -->
+          <div class="profile-card__overlay">
+            <span class="profile-card__name">Cristian Paul Guillen</span>
+            <span class="profile-card__role">// bsint · student · norsu-bsc</span>
+          </div>
         </div>
-        <div class="hero__deco-ring"></div>
       </div>
     </div>
   </div>
+
   <div class="hero__scroll-cue">
     <span>scroll down</span>
     <div class="scroll-line"></div>
@@ -100,11 +116,11 @@
     </div>
     <div class="about__grid">
       <div class="about__visual reveal">
-        <div class="about__photo-frame">
-          <div class="about__photo-inner">
-            <span class="about__mono-initial">CPG</span>
-          </div>
-          <div class="about__frame-accent"></div>
+        <!-- About photo (same image) -->
+        <div class="about__photo-card">
+         {% comment %} <img src="{% static 'frontEnd/img/profile1.png' %}" alt="pp"/> {% endcomment %}
+        <img src="{% static 'img/profile1.png' %}" .../>
+
         </div>
         <div class="about__quick-facts">
           <div class="qf-item">
@@ -116,15 +132,12 @@
             <div><span class="qf-label">Location</span><span class="qf-value">Bayawan City, PH</span></div>
           </div>
           <div class="qf-item">
-            <span class="qf-icon">🎓</span>
-            <div><span class="qf-label">Degree</span><span class="qf-value">BSIT @ NORSU</span></div>
-          </div>
-          <div class="qf-item">
             <span class="qf-icon">💼</span>
             <div><span class="qf-label">Status</span><span class="qf-value open">Open to Work</span></div>
           </div>
         </div>
       </div>
+
       <div class="about__content reveal">
         <h2 class="about__heading">
           I build things for the <span class="accent">web</span> and beyond.
@@ -172,9 +185,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download CV
           </a>
-          <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--outline">
-            View GitHub →
-          </a>
+          <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--outline">View GitHub →</a>
         </div>
       </div>
     </div>
@@ -192,48 +203,39 @@
       <span class="section-title">Services</span>
     </div>
     <p class="section-desc reveal">What I can build and deliver for you.</p>
-
     <div class="services__grid">
       <div class="service-card reveal">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h10M7 12h6"/></svg>
         </div>
         <h3>Web Development</h3>
-        <p>Building responsive, functional websites using HTML, CSS, JavaScript, and PHP. From static pages to dynamic web apps.</p>
-        <ul class="service-card__stack">
-          <li>HTML/CSS</li><li>JavaScript</li><li>PHP</li>
-        </ul>
+        <p>Building responsive, functional websites using HTML, CSS, JavaScript, and PHP,Java and Python. From static pages to dynamic web apps.</p>
+        <ul class="service-card__stack"><li>HTML/CSS</li><li>JavaScript</li><li>PHP</li><li>Java</li><li>Python</li></ul>
       </div>
-      <div class="service-card reveal">
+      {% comment %} <div class="service-card reveal">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
         <h3>Backend Development</h3>
         <p>Creating server-side logic, database interaction, and APIs using PHP and Java. Building robust systems that power applications.</p>
-        <ul class="service-card__stack">
-          <li>PHP</li><li>Java</li><li>MySQL</li>
-        </ul>
-      </div>
-      <div class="service-card reveal">
+        <ul class="service-card__stack"><li>PHP</li><li>Java</li><li>MySQL</li></ul>
+      </div> {% endcomment %}
+      {% comment %} <div class="service-card reveal">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Algorithm & Logic</h3>
         <p>Designing and implementing efficient algorithms and data structures in C++ and Java. Problem solving for competitive and academic use.</p>
-        <ul class="service-card__stack">
-          <li>C++</li><li>Java</li><li>Python</li>
-        </ul>
-      </div>
-      <div class="service-card reveal">
+        <ul class="service-card__stack"><li>C++</li><li>Java</li><li>Python</li></ul>
+      </div> {% endcomment %}
+      {% comment %} <div class="service-card reveal">
         <div class="service-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 22v-4h6v4M9 7h1M9 11h6M9 15h4"/></svg>
         </div>
         <h3>Desktop Applications</h3>
         <p>Developing basic desktop solutions and utilities using Java. Building GUIs and logic-heavy applications for academic and personal use.</p>
-        <ul class="service-card__stack">
-          <li>Java</li><li>C++</li>
-        </ul>
-      </div>
+        <ul class="service-card__stack"><li>Java</li><li>C++</li></ul>
+      </div> {% endcomment %}
     </div>
   </div>
 </section>
@@ -251,8 +253,7 @@
     <p class="section-desc reveal">A curated selection of work — each with a story behind it.</p>
 
     <div class="projects__grid">
-
-      <!-- Project 1 -->
+      <!-- Featured Project -->
       <article class="project-card project-card--featured reveal">
         <div class="project-card__visual">
           <div class="project-card__mockup">
@@ -260,9 +261,7 @@
             <div class="mockup-content mockup-content--blue">
               <div class="mc-row mc-row--wide"></div>
               <div class="mc-row"></div>
-              <div class="mc-grid">
-                <div class="mc-box"></div><div class="mc-box"></div><div class="mc-box"></div>
-              </div>
+              <div class="mc-grid"><div class="mc-box"></div><div class="mc-box"></div><div class="mc-box"></div></div>
             </div>
           </div>
         </div>
@@ -272,28 +271,27 @@
             <span class="project-tag">PHP</span>
             <span class="project-tag">MySQL</span>
           </div>
-          <h3>Student Information System</h3>
+          <h3>Lost and Found System</h3>
           <div class="case-study">
             <div class="case-study__item">
               <strong>Problem</strong>
-              <p>Manual student record management was error-prone and time-consuming for the department.</p>
+              <p>Manual reporting of lost and found items in the SAS is hustle for students.</p>
             </div>
             <div class="case-study__item">
               <strong>Process</strong>
-              <p>Built a PHP/MySQL CRUD system with role-based access for admins and students, featuring search and report generation.</p>
+              <p>Built a PHP/MySQL CRUD system with role-based access for admins and students, allows student to report lost and found items to the SAS office. And allow Admin(SAS STAFF) to check the validity of the claimant</p>
             </div>
             <div class="case-study__item">
               <strong>Result</strong>
-              <p>Reduced record retrieval time by ~70% and eliminated data duplication issues.</p>
+              <p>Not deployed HAHAHAH.</p>
             </div>
           </div>
           <div class="project-card__links">
-            <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn btn--sm btn--accent">View on GitHub</a>
+            <a href="https://github.com/chan2s/FindLit" target="_blank" rel="noopener" class="btn btn--sm btn--accent">View on GitHub</a>
           </div>
         </div>
       </article>
 
-      <!-- Project 2 -->
       <article class="project-card reveal">
         <div class="project-card__visual">
           <div class="project-card__mockup">
@@ -306,10 +304,7 @@
           </div>
         </div>
         <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-tag">CLI</span>
-            <span class="project-tag">C++</span>
-          </div>
+          <div class="project-card__meta"><span class="project-tag">CLI</span><span class="project-tag">C++</span></div>
           <h3>Library Management CLI</h3>
           <p class="project-card__summary">A command-line library system in C++ implementing linked lists, file I/O, and search algorithms to manage book records efficiently.</p>
           <div class="project-card__links">
@@ -318,7 +313,6 @@
         </div>
       </article>
 
-      <!-- Project 3 -->
       <article class="project-card reveal">
         <div class="project-card__visual">
           <div class="project-card__mockup">
@@ -331,10 +325,7 @@
           </div>
         </div>
         <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-tag">Web</span>
-            <span class="project-tag">HTML/CSS/JS</span>
-          </div>
+          <div class="project-card__meta"><span class="project-tag">Web</span><span class="project-tag">HTML/CSS/JS</span></div>
           <h3>Personal Portfolio Website</h3>
           <p class="project-card__summary">This portfolio — a fully responsive, modern site built with Django templates, vanilla JS, and custom CSS. No libraries, just clean craft.</p>
           <div class="project-card__links">
@@ -343,7 +334,6 @@
         </div>
       </article>
 
-      <!-- Project 4 -->
       <article class="project-card reveal">
         <div class="project-card__visual">
           <div class="project-card__mockup">
@@ -356,10 +346,7 @@
           </div>
         </div>
         <div class="project-card__info">
-          <div class="project-card__meta">
-            <span class="project-tag">Desktop</span>
-            <span class="project-tag">Java</span>
-          </div>
+          <div class="project-card__meta"><span class="project-tag">Desktop</span><span class="project-tag">Java</span></div>
           <h3>Inventory System (Java)</h3>
           <p class="project-card__summary">A Java Swing desktop app for basic inventory management — add, update, delete, and search product records with a clean GUI.</p>
           <div class="project-card__links">
@@ -367,7 +354,6 @@
           </div>
         </div>
       </article>
-
     </div>
 
     <div class="projects__cta reveal">
@@ -389,39 +375,28 @@
       <span class="section-line"></span>
       <span class="section-title">Tech Stack & Skills</span>
     </div>
-
     <div class="skills__wrapper">
       <div class="skills__col reveal">
         <h3 class="skills__col-title">Technical Skills</h3>
         <div class="skill-bar-list">
           <div class="skill-bar">
-            <div class="skill-bar__header">
-              <span>C++</span><span>85%</span>
-            </div>
+            <div class="skill-bar__header"><span>C++</span><span>85%</span></div>
             <div class="skill-bar__track"><div class="skill-bar__fill" data-width="85"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="skill-bar__header">
-              <span>HTML / CSS</span><span>90%</span>
-            </div>
+            <div class="skill-bar__header"><span>HTML / CSS</span><span>90%</span></div>
             <div class="skill-bar__track"><div class="skill-bar__fill" data-width="90"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="skill-bar__header">
-              <span>JavaScript</span><span>75%</span>
-            </div>
+            <div class="skill-bar__header"><span>JavaScript</span><span>75%</span></div>
             <div class="skill-bar__track"><div class="skill-bar__fill" data-width="75"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="skill-bar__header">
-              <span>PHP</span><span>80%</span>
-            </div>
+            <div class="skill-bar__header"><span>PHP</span><span>80%</span></div>
             <div class="skill-bar__track"><div class="skill-bar__fill" data-width="80"></div></div>
           </div>
           <div class="skill-bar">
-            <div class="skill-bar__header">
-              <span>Java</span><span>78%</span>
-            </div>
+            <div class="skill-bar__header"><span>Java</span><span>78%</span></div>
             <div class="skill-bar__track"><div class="skill-bar__fill" data-width="78"></div></div>
           </div>
           <div class="skill-bar skill-bar--learning">
@@ -432,40 +407,26 @@
           </div>
         </div>
       </div>
-
       <div class="skills__col reveal">
         <h3 class="skills__col-title">Professional Skills</h3>
         <div class="soft-skills">
           <div class="soft-skill">
             <div class="soft-skill__icon">🧩</div>
-            <div>
-              <strong>Problem Solving</strong>
-              <p>Breaking complex challenges into manageable solutions through logical thinking.</p>
-            </div>
+            <div><strong>Problem Solving</strong><p>Breaking complex challenges into manageable solutions through logical thinking.</p></div>
           </div>
           <div class="soft-skill">
             <div class="soft-skill__icon">🤝</div>
-            <div>
-              <strong>Team Collaboration</strong>
-              <p>Working effectively in academic project teams, communicating clearly and meeting deadlines.</p>
-            </div>
+            <div><strong>Team Collaboration</strong><p>Working effectively in academic project teams, communicating clearly and meeting deadlines.</p></div>
           </div>
           <div class="soft-skill">
             <div class="soft-skill__icon">📚</div>
-            <div>
-              <strong>Continuous Learning</strong>
-              <p>Self-driven learner constantly exploring new technologies and best practices.</p>
-            </div>
+            <div><strong>Continuous Learning</strong><p>Self-driven learner constantly exploring new technologies and best practices.</p></div>
           </div>
           <div class="soft-skill">
             <div class="soft-skill__icon">🎯</div>
-            <div>
-              <strong>Attention to Detail</strong>
-              <p>Writing clean, well-documented code with a focus on correctness and readability.</p>
-            </div>
+            <div><strong>Attention to Detail</strong><p>Writing clean, well-documented code with a focus on correctness and readability.</p></div>
           </div>
         </div>
-
         <div class="tools-section">
           <h4>Tools & Environments</h4>
           <div class="tools-grid">
@@ -473,10 +434,7 @@
             <span class="tool-chip">Git</span>
             <span class="tool-chip">GitHub</span>
             <span class="tool-chip">MySQL</span>
-            <span class="tool-chip">Django</span>
             <span class="tool-chip">XAMPP</span>
-            <span class="tool-chip">Linux</span>
-            <span class="tool-chip">Windows</span>
           </div>
         </div>
       </div>
@@ -495,17 +453,13 @@
       <span class="section-title">Testimonials</span>
     </div>
     <p class="section-desc reveal">What classmates and peers say about working with me.</p>
-
     <div class="testimonials__grid">
       <div class="testimonial-card reveal">
         <div class="testimonial-card__quote">"</div>
         <p>"Cristian is one of the most reliable and dedicated members of our project group. His C++ and PHP skills saved us countless debugging hours. He always goes above and beyond."</p>
         <div class="testimonial-card__author">
           <div class="testimonial-avatar">JD</div>
-          <div>
-            <strong>Juan Dela Cruz</strong>
-            <span>BSIT Classmate, NORSU</span>
-          </div>
+          <div><strong>Juan Dela Cruz</strong><span>BSIT Classmate, NORSU</span></div>
         </div>
       </div>
       <div class="testimonial-card reveal">
@@ -513,10 +467,7 @@
         <p>"What sets Cristian apart is his ability to understand the full picture — not just the code but the problem itself. He built our team's web system from scratch and it worked flawlessly."</p>
         <div class="testimonial-card__author">
           <div class="testimonial-avatar">MR</div>
-          <div>
-            <strong>Maria Reyes</strong>
-            <span>Group Mate, Web Systems Class</span>
-          </div>
+          <div><strong>Maria Reyes</strong><span>Group Mate, Web Systems Class</span></div>
         </div>
       </div>
       <div class="testimonial-card reveal">
@@ -524,10 +475,7 @@
         <p>"Cristian has an impressive eye for UI and a solid grasp of backend logic. He brought real structure to our capstone pre-study, and his documentation was top-notch."</p>
         <div class="testimonial-card__author">
           <div class="testimonial-avatar">KB</div>
-          <div>
-            <strong>Karl Buenaventura</strong>
-            <span>Capstone Group Member, NORSU</span>
-          </div>
+          <div><strong>Karl Buenaventura</strong><span>Capstone Group Member, NORSU</span></div>
         </div>
       </div>
     </div>
@@ -535,7 +483,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     BLOG PREVIEW
+     BLOG
 ══════════════════════════════════════════ -->
 <section class="section blog" id="blog">
   <div class="container">
@@ -584,37 +532,20 @@
           Let's build something <span class="accent">together.</span>
         </h2>
         <p>I'm open to internship opportunities, freelance projects, academic collaborations, or just a great conversation about tech. Reach out through the form or any of the channels below.</p>
-
         <ul class="contact__channels">
           <li>
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <div>
-              <span class="channel-label">Email</span>
-              <a href="mailto:cpguillen@email.com" class="channel-value">cpguillen@email.com</a>
-            </div>
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div><span class="channel-label">Email</span><a href="mailto:cpguillen@email.com" class="channel-value">cpguillen@email.com</a></div>
           </li>
           <li>
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            </div>
-            <div>
-              <span class="channel-label">GitHub</span>
-              <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="channel-value">github.com/chan2s</a>
-            </div>
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></div>
+            <div><span class="channel-label">GitHub</span><a href="https://github.com/chan2s" target="_blank" rel="noopener" class="channel-value">github.com/chan2s</a></div>
           </li>
           <li>
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <span class="channel-label">Location</span>
-              <span class="channel-value">Villareal, Bayawan City, Negros Oriental</span>
-            </div>
+            <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><span class="channel-label">Location</span><span class="channel-value">Villareal, Bayawan City, Negros Oriental</span></div>
           </li>
         </ul>
-
         <div class="contact__availability">
           <span class="avail-dot"></span>
           Currently available for part-time work and internships.
