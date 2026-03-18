@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zz7cx(k*n9@zo4#juh%s_6c5kloz2sn(^@6@_2qh8)j)9c!b7x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cristiang12.pythonanywhere.com']
 
 
 # Application definition
@@ -116,10 +116,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIR =[
-    os.path.join(BASE_DIR,'fronEnd/static'),
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR,'frontEnd/static'),
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
