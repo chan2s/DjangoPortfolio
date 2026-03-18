@@ -8,68 +8,61 @@
   <title>{% block title %}Cristian Paul Guillen{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet"/>
+  <!-- Editorial: Bebas Neue (display) + Instrument Sans (body) + Fira Code (mono) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="{% static 'frontEnd/css/main.css' %}"/>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
 <!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="#hero" class="nav__logo">CPG<span class="accent">.</span></a>
-  <ul class="nav__menu" id="navMenu">
-    <li><a href="#about" class="nav__link">About</a></li>
-    <li><a href="#services" class="nav__link">Services</a></li>
-    <li><a href="#projects" class="nav__link">Projects</a></li>
-    <li><a href="#skills" class="nav__link">Skills</a></li>
-    <li><a href="#testimonials" class="nav__link">Reviews</a></li>
-    <li><a href="#contact" class="nav__link">Contact</a></li>
-  </ul>
-  <div class="nav__actions">
-    <a href="#contact" class="btn btn--sm btn--accent">Hire Me</a>
-    <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-mark">CPG</span>
+      <span class="logo-slash">/</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#about" class="nav-link" data-num="01">About</a>
+      <a href="#projects" class="nav-link" data-num="02">Work</a>
+      <a href="#skills" class="nav-link" data-num="03">Stack</a>
+      <a href="#contact" class="nav-link" data-num="04">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#contact" class="hire-btn">Hire Me <span class="arrow-icon">↗</span></a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
-</nav>
+</header>
 
 <main>{% block content %}{% endblock %}</main>
 
-<footer class="footer">
-  <div class="footer__inner container">
-    <div class="footer__brand">
-      <span class="footer__logo">CPG<span class="accent">.</span></span>
-      <p>Cristian Paul Guillen — BSIT Student &amp; Developer<br>Bayawan City, Negros Oriental, PH</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      {% comment %} <span class="footer-logo">CPG<span class="slash">/</span></span> {% endcomment %}
+      <p>Cristian Paul Guillen<br>BSIT · NORSU · Bayawan City</p>
     </div>
-    <div class="footer__links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="footer-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Stack</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="footer__social">
-      <h4>Find Me</h4>
-      <div class="social-links">
-        <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          GitHub
-        </a>
-        <a href="mailto:cpguillen@email.com" class="social-btn" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Email
-        </a>
-      </div>
+    <div class="footer-social">
+      <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="social-row">
+        <span class="social-icon">GH</span> github.com/chan2s
+      </a>
+      <a href="mailto:cpguillen@email.com" class="social-row">
+        <span class="social-icon">@</span> cpguillen@email.com
+      </a>
     </div>
   </div>
-  <div class="footer__bottom">
-    <span>&copy; {% now "Y" %} Cristian Paul Guillen. All rights reserved.</span>
+  <div class="footer-bottom">
+    {% comment %} <span class="mono">© {% now "Y" %} Cristian Paul Guillen — Built with Django + Passion</span> {% endcomment %}
+    <span class="mono avail"><span class="avail-dot"></span> Open to Work</span>
   </div>
 </footer>
 
