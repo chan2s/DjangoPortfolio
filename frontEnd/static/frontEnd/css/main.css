@@ -20,11 +20,8 @@
   --text-3: #52504c;
 
   --hi: #e8ff47;
-  /* acid yellow accent */
   --hi-2: #ff6b35;
-  /* burnt orange */
   --hi-3: #4affce;
-  /* mint */
 
   --font-disp: 'Bebas Neue', sans-serif;
   --font-body: 'Instrument Sans', sans-serif;
@@ -256,7 +253,6 @@ body::before {
   position: relative;
 }
 
-/* Big diagonal grid lines in background */
 .hero::before {
   content: '';
   position: absolute;
@@ -505,6 +501,7 @@ body::before {
   font-size: 0.68rem;
   color: var(--text-2);
   white-space: nowrap;
+  z-index: 3;
 }
 
 .badge-corner--tl {
@@ -875,7 +872,7 @@ body::before {
   color: var(--hi);
 }
 
-/* Featured project — horizontal full-width */
+/* Featured project */
 .project-featured {
   display: grid;
   grid-template-columns: 1fr 480px;
@@ -1378,6 +1375,51 @@ body::before {
 }
 
 /* ═══════════════════════════════════════════════════════
+   GITHUB CONTRIBUTIONS
+═══════════════════════════════════════════════════════ */
+.github-contrib {
+  border-bottom: 1px solid var(--rule);
+}
+
+.contrib-wrapper {
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  background: var(--ink-2);
+  margin-bottom: 4rem;
+}
+
+.contrib-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.contrib-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.contrib-graph {
+  background: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.contrib-graph img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.85);
+  min-width: 600px;
+}
+
+/* ═══════════════════════════════════════════════════════
    CONTACT
 ═══════════════════════════════════════════════════════ */
 .contact {
@@ -1688,13 +1730,19 @@ body::before {
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════ */
-@media (max-width: 1100px) {
+
+/* ── TABLET (601px – 1100px): side-by-side hero ───── */
+@media (min-width: 601px) and (max-width: 1100px) {
   .hero-main {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 280px;
+    align-items: end;
+    padding: 9rem 2.5rem 3rem;
   }
 
+  /* Profile visible in side-by-side layout */
   .hero-profile {
-    display: none;
+    display: flex;
+    max-width: 100%;
   }
 
   .stats-inner {
@@ -1785,7 +1833,10 @@ body::before {
   }
 }
 
-@media (max-width: 768px) {
+/* ── MOBILE (≤ 600px): stacked layout with profile ── */
+@media (max-width: 600px) {
+
+  /* Nav overlay */
   .main-nav {
     display: none;
     position: fixed;
@@ -1815,21 +1866,107 @@ body::before {
     padding: 1rem 1.5rem;
   }
 
+  /* Hero: single column, text then photo */
   .hero-main {
-    padding: 8rem 1.5rem 2rem;
+    grid-template-columns: 1fr;
+    padding: 7rem 1.5rem 2.5rem;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* ✅ KEY FIX: profile photo visible on mobile */
+  .hero-profile {
+    display: flex !important;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+  }
+
+  .profile-frame {
+    aspect-ratio: 3/4;
+    width: 100%;
+  }
+
+  /* Badge repositioning for small screens */
+  .badge-corner {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .badge-corner--tl {
+    top: -1rem;
+    left: 0;
+  }
+
+  .badge-corner--br {
+    bottom: -1rem;
+    right: 0;
   }
 
   .hero-title {
-    font-size: 4rem;
+    font-size: clamp(3.5rem, 16vw, 5rem);
   }
 
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .hero-actions {
+    gap: 0.6rem;
+  }
+
+  /* Container */
   .container {
     padding: 0 1.5rem;
   }
 
+  /* Stats: 2 columns */
   .stats-inner {
     grid-template-columns: repeat(2, 1fr);
     padding: 0 1.5rem;
+  }
+
+  .stat-block {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-block:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+  }
+
+  /* About */
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-left {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 2.5rem 0;
+  }
+
+  .about-right {
+    padding: 2.5rem 0;
+  }
+
+  /* Projects */
+  .project-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .project-featured-visual {
+    min-height: 220px;
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .project-case {
+    grid-template-columns: 1fr;
   }
 
   .projects-grid {
@@ -1841,18 +1978,53 @@ body::before {
     border-right: none;
   }
 
-  .project-case {
+  /* Skills */
+  .skills-grid {
     grid-template-columns: 1fr;
   }
 
+  .skills-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+
+  .skills-col:last-child {
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  /* Testimonials */
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .testi-card {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 2.5rem 0;
+  }
+
+  .contact-right {
+    padding: 2.5rem 0;
   }
 
   .form-row-2 {
     grid-template-columns: 1fr;
   }
 
+  /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1863,46 +2035,55 @@ body::before {
     padding: 1rem 1.5rem;
     flex-direction: column;
     gap: 0.5rem;
+    text-align: center;
+  }
+
+  /* Ticker */
+  .ticker-items {
+    gap: 2rem;
+  }
+
+  .ticker-item {
+    font-size: 0.7rem;
+  }
+
+  /* Section eyebrow spacing */
+  .section-eyebrow {
+    padding: 3rem 0 2rem;
+  }
+
+  /* GitHub graph horizontal scroll */
+  .contrib-graph img {
+    min-width: 500px;
   }
 }
 
-/* ── GITHUB CONTRIBUTIONS ───────────────────────────── */
-.github-contrib {
-  border-bottom: 1px solid var(--rule);
-}
+/* ── SMALL MOBILE (≤ 400px) ──────────────────────── */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 3rem;
+  }
 
-.contrib-wrapper {
-  border: 1px solid var(--rule);
-  padding: 2rem;
-  background: var(--ink-2);
-  margin-bottom: 4rem;
-}
+  .hero-actions {
+    flex-direction: column;
+  }
 
-.contrib-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--rule);
-}
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 
-.contrib-title {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
+  .hero-profile {
+    max-width: 200px;
+  }
 
-.contrib-graph {
-  background: var(--ink);
-  border: 1px solid var(--rule);
-  padding: 1.5rem;
-}
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.contrib-graph img {
-  width: 100%;
-  display: block;
-  filter: brightness(0.85);
+  .stat-number {
+    font-size: 2.5rem;
+  }
 }
