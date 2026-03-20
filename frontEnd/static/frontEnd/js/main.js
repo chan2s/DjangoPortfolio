@@ -44,7 +44,6 @@ const typedEl = document.getElementById('typed-text');
 if (typedEl) {
     const phrases = [
         '3rd Year BSINT Student @ NORSU-BSC',
-        'Full-Stack Web Developer',
         'Good Listener',
         'Basketball Player',
         'Open to Opportunities',
