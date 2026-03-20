@@ -9,26 +9,23 @@
 <section class="hero" id="hero">
   <canvas id="galaxyCanvas" class="galaxy-canvas"></canvas>
 
-  <!-- CSS starfield fallback — always visible under WebGL canvas -->
-  <div class="hero-stars" aria-hidden="true">
-    <div class="stars-sm"></div>
-    <div class="stars-md"></div>
-    <div class="stars-lg"></div>
-  </div>
-
+  <!-- Vignette overlay so text stays readable -->
   <div class="hero-vignette"></div>
 
   <div class="hero-content">
 
-    <!-- Left column: text (order:2 on mobile so avatar appears first) -->
+    <!-- Left column: text -->
     <div class="hero-text reveal">
       <div class="status-pill">
         <span class="status-dot"></span>Available · Open to Work
       </div>
 
       <h1 class="hero-title">
+        <!-- CRISTIAN: solid white -->
         <span class="ht-line ht-1">CRISTIAN</span>
+        <!-- PAUL: violet outlined ghost -->
         <span class="ht-line ht-2">PAUL</span>
+        <!-- GUILLEN: aurora gradient teal → yellow → warm orange -->
         <span class="ht-line ht-3">GUILLEN</span>
       </h1>
 
@@ -48,7 +45,7 @@
       </div>
     </div>
 
-    <!-- Right column: circular profile (order:1 on mobile = appears on top) -->
+    <!-- Right column: circular profile -->
     <div class="hero-avatar reveal reveal-delay-2">
       <div class="avatar-ring-outer">
         <div class="avatar-ring-inner">
@@ -56,16 +53,19 @@
             <img src="{% static 'img/profile1.png' %}" alt="Cristian Paul Guillen"/>
           </div>
         </div>
+        <!-- Orbit dots -->
         <span class="orbit-dot od-1"></span>
         <span class="orbit-dot od-2"></span>
         <span class="orbit-dot od-3"></span>
       </div>
+      <!-- Floating chips -->
       <div class="avatar-chip chip-tl">3rd Year BSINT</div>
       <div class="avatar-chip chip-br">{{ all_projects.count }}+ Projects</div>
     </div>
 
   </div>
 
+  <!-- Ticker -->
   <div class="hero-ticker">
     <div class="ticker-inner">
       <span class="ticker-label">Stack</span>
@@ -228,23 +228,30 @@
     <div class="section-eyebrow reveal"><span class="eyebrow-num">04</span><span class="eyebrow-line"></span><span class="eyebrow-text">Tech Stack & Skills</span></div>
     <div class="skills-grid">
 
+      <!-- ── Technical Skills (card grid with arc meters) ── -->
       <div class="skills-col reveal">
         <div class="skills-col-title">Technical Skills</div>
+
         <div class="skill-bar-list">
           {% for skill in technical_skills %}
           <div class="skill-item" data-proficiency="{{ skill.proficiency }}">
-            <!-- SVG arc meter (top-right) -->
-            <div class="skill-arc">
-              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                <circle class="skill-arc-track" cx="18" cy="18" r="14"/>
-                <circle class="skill-arc-fill"  cx="18" cy="18" r="14"/>
-              </svg>
-              <!-- percentage label inside arc -->
-              <span class="skill-pct">{{ skill.proficiency }}</span>
-            </div>
+
+            <!-- SVG radial arc meter (top-right corner) -->
+                <div class="skill-arc">
+                  <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="skill-arc-track" cx="18" cy="18" r="14"/>
+                    <circle class="skill-arc-fill"  cx="18" cy="18" r="14"/>
+                  </svg>
+                  <span class="skill-pct">{{ skill.proficiency }}</span>  <!-- move inside here -->
+                </div>
+
+            <!-- Percentage label centred inside arc -->
+            <span class="skill-pct">{{ skill.proficiency }}</span>
+
             <!-- Skill name -->
             <span class="skill-name">{{ skill.name }}</span>
-            <!-- Level label or learning badge -->
+
+            <!-- Level label OR learning badge -->
             {% if skill.is_learning %}
               <span class="learning-tag">Learning</span>
             {% else %}
@@ -255,16 +262,19 @@
                 {% else %}Beginner{% endif %}
               </span>
             {% endif %}
+
           </div>
           {% endfor %}
         </div>
 
+        <!-- Tools -->
         <div class="tools-wrap">
           <div class="tools-label">Tools & Environments</div>
           <div class="tools-list">{% for tool in tools %}<span class="tool">{{ tool.name }}</span>{% endfor %}</div>
         </div>
       </div>
 
+      <!-- ── Professional Skills (unchanged) ── -->
       <div class="skills-col reveal reveal-delay-1">
         <div class="skills-col-title">Professional Skills</div>
         {% for skill in professional_skills %}
@@ -287,7 +297,7 @@
     <div class="section-eyebrow reveal"><span class="eyebrow-num">05</span><span class="eyebrow-line"></span><span class="eyebrow-text">GitHub Activity</span></div>
     <div class="contrib-wrapper reveal">
       <div class="contrib-header"><span class="contrib-title">Contribution Graph · chan2s</span><a href="https://github.com/chan2s" target="_blank" rel="noopener" class="see-all">View Profile ↗</a></div>
-      <div class="contrib-graph"><img src="https://ghchart.rshah.org/e8ff47/chan2s" alt="GitHub contribution graph for chan2s" loading="lazy"/></div>
+      <div class="contrib-graph"><img src="https://ghchart.rshah.org/e8ff47/chan2s" alt="GitHub contribution graph for chan2s"/></div>
     </div>
   </div>
 </section>
@@ -303,7 +313,7 @@
         <h2 class="contact-heading">Let's Build<span class="hi">Together.</span></h2>
         <p class="contact-subtext">Open to internship opportunities, freelance projects, academic collaborations, or just a great conversation about tech.</p>
         <div class="contact-links">
-          <div class="contact-link-row"><div><div class="clink-label">Email</div><a href="mailto:cristianpaulguillen74@gmail.com" class="clink-val">cristianpaulguillen74@gmail.com</a></div><span class="clink-arrow">↗</span></div>
+          <div class="contact-link-row"><div><div class="clink-label">Email</div><a href="mailto:cpguillen@email.com" class="clink-val">cpguillen@email.com</a></div><span class="clink-arrow">↗</span></div>
           <div class="contact-link-row"><div><div class="clink-label">GitHub</div><a href="https://github.com/chan2s" target="_blank" rel="noopener" class="clink-val">github.com/chan2s</a></div><span class="clink-arrow">↗</span></div>
           <div class="contact-link-row"><div><div class="clink-label">Location</div><span class="clink-val">Bayawan City, Negros Oriental</span></div><span class="clink-arrow">→</span></div>
         </div>
@@ -313,16 +323,17 @@
         <form class="contact-form-inner" id="contactForm" novalidate>
           {% csrf_token %}
           <div class="form-row-2">
-            <div class="field"><label for="fname">Full Name</label><input type="text" id="fname" name="full_name" placeholder="Your name" required/></div>
-            <div class="field"><label for="femail">Email Address</label><input type="email" id="femail" name="email" placeholder="you@email.com" required/></div>
+            <div class="field"><label for="name">Full Name</label><input type="text" id="name" name="full_name" placeholder="Your name" required/></div>
+            <div class="field"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="you@email.com" required/></div>
           </div>
-          <div class="field"><label for="fsubject">Subject</label>
-            <select id="fsubject" name="subject">
+          <div class="field">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
               <option value="">Select a topic...</option>
               <option>Internship Opportunity</option><option>Project Collaboration</option><option>Freelance Work</option><option>Just Saying Hi</option>
             </select>
           </div>
-          <div class="field"><label for="fmessage">Message</label><textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea></div>
           <div id="form-feedback" style="display:none"></div>
           <button type="submit" class="submit-btn" id="submitBtn"><span id="btnText">Send Message</span><span id="btnIcon">↗</span></button>
         </form>
