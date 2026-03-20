@@ -1603,11 +1603,14 @@ body::after {
   height: 36px;
 }
 
+
 .skill-arc svg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 36px;
   height: 36px;
   transform: rotate(-90deg);
-  display: block;
 }
 
 .skill-pct {
@@ -1622,7 +1625,6 @@ body::after {
   font-family: var(--font-mono);
   font-size: .46rem;
   color: var(--hi-4);
-  line-height: 1;
   pointer-events: none;
   z-index: 2;
 }
@@ -1644,23 +1646,7 @@ body::after {
 }
 
 /* Percentage label — centred inside the arc svg */
-.skill-pct {
-  position: absolute;
-  top: .7rem;
-  right: .7rem;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: .46rem;
-  color: var(--hi-4);
-  line-height: 1;
-  pointer-events: none;
-  /* sits on top of the SVG which is also 36×36 at top:.7rem right:.7rem */
-  z-index: 1;
-}
+
 
 .skill-name {
   font-size: .82rem;
