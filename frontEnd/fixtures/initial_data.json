@@ -1,0 +1,258 @@
+[
+    {
+        "model": "frontEnd.project",
+        "pk": 1,
+        "fields": {
+            "created_at": "2025-01-01T00:00:00Z",
+            "title": "Lost & Found System"
+        }
+    },
+    {
+        "model": "frontEnd.project",
+        "pk": 2,
+        "fields": {
+            "created_at": "2025-01-01T00:00:00Z",
+            "title": "HomeFindr"
+        }
+    },
+    {
+        "model": "frontEnd.project",
+        "pk": 3,
+        "fields": {
+            "created_at": "2025-01-01T00:00:00Z",
+            "title": "Internship Management System"
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 1,
+        "fields": {
+            "name": "C++",
+            "category": "technical",
+            "proficiency": 40,
+            "is_learning": false,
+            "description": "",
+            "order": 1
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 2,
+        "fields": {
+            "name": "HTML / CSS",
+            "category": "technical",
+            "proficiency": 60,
+            "is_learning": false,
+            "description": "",
+            "order": 2
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 3,
+        "fields": {
+            "name": "JavaScript",
+            "category": "technical",
+            "proficiency": 50,
+            "is_learning": false,
+            "description": "",
+            "order": 3
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 4,
+        "fields": {
+            "name": "PHP",
+            "category": "technical",
+            "proficiency": 40,
+            "is_learning": true,
+            "description": "",
+            "order": 4
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 5,
+        "fields": {
+            "name": "Java",
+            "category": "technical",
+            "proficiency": 65,
+            "is_learning": false,
+            "description": "",
+            "order": 5
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 6,
+        "fields": {
+            "name": "Python",
+            "category": "technical",
+            "proficiency": 20,
+            "is_learning": true,
+            "description": "",
+            "order": 6
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 7,
+        "fields": {
+            "name": "Problem Solving",
+            "category": "professional",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "Breaking complex challenges into manageable solutions through logical, structured thinking.",
+            "order": 1
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 8,
+        "fields": {
+            "name": "Continuous Learning",
+            "category": "professional",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "Self-driven learner constantly exploring new technologies and best practices.",
+            "order": 2
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 10,
+        "fields": {
+            "name": "VS Code",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 1
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 11,
+        "fields": {
+            "name": "Git",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 2
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 12,
+        "fields": {
+            "name": "GitHub",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 3
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 13,
+        "fields": {
+            "name": "MySQL",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 4
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 14,
+        "fields": {
+            "name": "XAMPP",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 5
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 15,
+        "fields": {
+            "name": "Django",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 6
+        }
+    },
+    {
+        "model": "frontEnd.skill",
+        "pk": 16,
+        "fields": {
+            "name": "SpringBoot",
+            "category": "tool",
+            "proficiency": 0,
+            "is_learning": false,
+            "description": "",
+            "order": 7
+        }
+    },
+    {
+        "model": "frontEnd.education",
+        "pk": 1,
+        "fields": {
+            "institution": "Villareal Elementary School",
+            "degree": "Elementary Education",
+            "year_start": "2011",
+            "year_end": "2016",
+            "is_current": false,
+            "location": "Villareal, Bayawan City",
+            "order": 1
+        }
+    },
+    {
+        "model": "frontEnd.education",
+        "pk": 2,
+        "fields": {
+            "institution": "Bayawan National High School",
+            "degree": "Junior High School",
+            "year_start": "2017",
+            "year_end": "2021",
+            "is_current": false,
+            "location": "Bayawan City",
+            "order": 2
+        }
+    },
+    {
+        "model": "frontEnd.education",
+        "pk": 3,
+        "fields": {
+            "institution": "Bayawan National High School",
+            "degree": "Senior High School",
+            "year_start": "2021",
+            "year_end": "2023",
+            "is_current": false,
+            "location": "Bayawan City",
+            "order": 3
+        }
+    },
+    {
+        "model": "frontEnd.education",
+        "pk": 4,
+        "fields": {
+            "institution": "Negros Oriental State University",
+            "degree": "Bachelor of Science in Information Technology",
+            "year_start": "2023",
+            "year_end": "Present",
+            "is_current": true,
+            "location": "NORSU-BSC",
+            "order": 4
+        }
+    }
+]

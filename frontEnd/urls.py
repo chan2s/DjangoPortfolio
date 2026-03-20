@@ -1,14 +1,9 @@
-# from django.urls import path
-# from . import views
-
-# urlpatterns = [
-#     path('main/', views.test, name="test")
-# ]
-
 from django.urls import path
-# from .views import *
 from . import views
 
+app_name = 'frontEnd'
+
 urlpatterns = [
-  path('' , views.home)
+    path('', views.index, name='index'),
+    path('contact/submit/', views.submit_contact, name='submit_contact'),
 ]
