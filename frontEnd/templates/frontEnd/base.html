@@ -9,61 +9,124 @@
   <title>{% block title %}Cristian Paul Guillen{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <!-- Editorial: Bebas Neue (display) + Instrument Sans (body) + Fira Code (mono) -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="{% static 'frontEnd/css/main.css' %}"/>
 </head>
 <body>
 
-<!-- NAV -->
-<header class="site-header" id="site-header">
-  <div class="header-inner">
-    <a href="#hero" class="logo">
-      <span class="logo-mark">CPG</span>
-      <span class="logo-slash">/</span>
-    </a>
-    <nav class="main-nav" id="main-nav">
-      <a href="#about" class="nav-link" data-num="01">About</a>
-      <a href="#projects" class="nav-link" data-num="02">Work</a>
-      <a href="#skills" class="nav-link" data-num="03">Stack</a>
-      <a href="#contact" class="nav-link" data-num="04">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <a href="#contact" class="hire-btn">Hire Me <span class="arrow-icon">↗</span></a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span>
-      </button>
+<!-- NOISE OVERLAY -->
+<div class="noise-overlay" aria-hidden="true"></div>
+
+<!-- PILL NAV -->
+<div class="pill-nav-container" id="pillNavContainer">
+
+  <!-- Desktop pill nav -->
+  <nav class="pill-nav" id="pillNav" aria-label="Primary">
+
+    {% comment %} <!-- Logo pill -->
+    <a href="#hero" class="pill-logo" id="pillLogo" aria-label="Home">
+      <span class="pill-logo-text">CPG<span class="pill-logo-dot">.</span></span>
+    </a> {% endcomment %}
+
+    <!-- Nav items pill bar -->
+    <div class="pill-nav-items desktop-only" id="pillNavItems">
+      <ul class="pill-list" role="menubar">
+        <li role="none">
+          <a href="#about" class="pill" role="menuitem" data-label="About">
+            <span class="hover-circle" aria-hidden="true"></span>
+            <span class="label-stack">
+              <span class="pill-label">About</span>
+              <span class="pill-label-hover" aria-hidden="true">About</span>
+            </span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#projects" class="pill" role="menuitem" data-label="Works">
+            <span class="hover-circle" aria-hidden="true"></span>
+            <span class="label-stack">
+              <span class="pill-label">Works</span>
+              <span class="pill-label-hover" aria-hidden="true">Works</span>
+            </span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#skills" class="pill" role="menuitem" data-label="Stack">
+            <span class="hover-circle" aria-hidden="true"></span>
+            <span class="label-stack">
+              <span class="pill-label">Stack</span>
+              <span class="pill-label-hover" aria-hidden="true">Stack</span>
+            </span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#contact" class="pill" role="menuitem" data-label="Contact">
+            <span class="hover-circle" aria-hidden="true"></span>
+            <span class="label-stack">
+              <span class="pill-label">Contact</span>
+              <span class="pill-label-hover" aria-hidden="true">Contact</span>
+            </span>
+          </a>
+        </li>
+      </ul>
     </div>
+
+    <!-- Hire button (desktop) -->
+    {% comment %} <a href="#contact" class="hire-btn desktop-only">
+      <span class="hire-dot"></span>Let's talk
+    </a> {% endcomment %}
+
+    <!-- Hamburger (mobile) -->
+    <button class="mobile-menu-button mobile-only" id="hamburgerBtn" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div class="mobile-menu-popover mobile-only" id="mobileMenu">
+    <ul class="mobile-menu-list">
+      <li><a href="#about"    class="mobile-menu-link">About</a></li>
+      <li><a href="#projects" class="mobile-menu-link">Works</a></li>
+      <li><a href="#skills"   class="mobile-menu-link">Stack</a></li>
+      <li><a href="#contact"  class="mobile-menu-link">Contact</a></li>
+      <li><a href="#contact"  class="mobile-menu-link mobile-hire">Let's talk →</a></li>
+    </ul>
   </div>
-</header>
+
+</div>
 
 <main>{% block content %}{% endblock %}</main>
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      {% comment %} <span class="footer-logo">CPG<span class="slash">/</span></span> {% endcomment %}
-      <p>Cristian Paul Guillen<br>BSINT · NORSU-BSC · Bayawan City</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        {% comment %} <div class="footer-logo">CPG<span class="logo-slash">.</span></div> {% endcomment %}
+        <p>BSINT · NORSU-BSC<br>Bayawan City, Philippines</p>
+      </div>
+      <div class="footer-nav">
+        <span class="footer-nav-label">Navigate</span>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <span class="footer-nav-label">Connect</span>
+        <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="social-row">
+          <i class="fab fa-github"></i> github.com/chan2s
+        </a>
+        <a href="mailto:cristianpaulguillen74@gmail.com" class="social-row">
+          <i class="fas fa-envelope"></i> cristianpaulguillen74@gmail.com
+        </a>
+      </div>
     </div>
-    <div class="footer-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Stack</a>
-      <a href="#contact">Contact</a>
+    <div class="footer-bottom">
+      <span class="avail"><span class="avail-dot"></span>Open to Work</span>
     </div>
-    <div class="footer-social">
-      <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="social-row">
-        <span class="social-icon">GH</span> github.com/chan2s
-      </a>
-      <a href="mailto:cristianpaulguillen74@gmail.com" class="social-row">
-        <span class="social-icon">@</span> cristianpaulguillen74@gmail.com
-      </a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    {% comment %} <span class="mono">© {% now "Y" %} Cristian Paul Guillen — Built with Django + Passion</span> {% endcomment %}
-    <span class="mono avail"><span class="avail-dot"></span> Open to Work</span>
   </div>
 </footer>
 

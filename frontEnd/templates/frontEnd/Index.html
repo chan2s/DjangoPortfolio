@@ -3,330 +3,435 @@
 {% block title %}Cristian Paul Guillen — Developer & BSINT Student{% endblock %}
 {% block content %}
 
-<!-- ═══════════════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════════════ -->
-<section class="hero" id="hero">
-  <canvas id="galaxyCanvas" class="galaxy-canvas"></canvas>
-
-  <!-- CSS starfield fallback — always visible under WebGL canvas -->
-  <div class="hero-stars" aria-hidden="true">
-    <div class="stars-sm"></div>
-    <div class="stars-md"></div>
-    <div class="stars-lg"></div>
-  </div>
-
-  <div class="hero-vignette"></div>
-
-  <div class="hero-content">
-
-    <!-- Left column: text (order:2 on mobile so avatar appears first) -->
-    <div class="hero-text reveal">
-      <div class="status-pill">
-        <span class="status-dot"></span>Available · Open to Work
-      </div>
-
-      <h1 class="hero-title">
-        <span class="ht-line ht-1">CRISTIAN</span>
-        <span class="ht-line ht-2">PAUL</span>
-        <span class="ht-line ht-3">GUILLEN</span>
-      </h1>
-
-      <div class="hero-typed-row reveal reveal-delay-1">
-        <span class="typed-prefix">~/role $&nbsp;</span>
-        <span id="typed-text"></span><span class="caret">|</span>
-      </div>
-
-      <p class="hero-desc reveal reveal-delay-2">
-        3rd Year <strong>BSINT</strong> student at <strong>NORSU</strong> — crafting clean code and digital experiences from Bayawan City, Negros Oriental.
-      </p>
-
-      <div class="hero-cta reveal reveal-delay-3">
-        <a href="#projects" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-ghost">Let's Talk ↗</a>
-        <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn-ghost">Resume ↓</a>
-      </div>
-    </div>
-
-    <!-- Right column: circular profile (order:1 on mobile = appears on top) -->
-    <div class="hero-avatar reveal reveal-delay-2">
-      <div class="avatar-ring-outer">
-        <div class="avatar-ring-inner">
-          <div class="avatar-circle">
-            <img src="{% static 'img/profile1.png' %}" alt="Cristian Paul Guillen"/>
-          </div>
-        </div>
-        <span class="orbit-dot od-1"></span>
-        <span class="orbit-dot od-2"></span>
-        <span class="orbit-dot od-3"></span>
-      </div>
-      <div class="avatar-chip chip-tl">3rd Year BSINT</div>
-      <div class="avatar-chip chip-br">{{ all_projects.count }}+ Projects</div>
-    </div>
-
-  </div>
-
-  <div class="hero-ticker">
-    <div class="ticker-inner">
-      <span class="ticker-label">Stack</span>
-      <div class="ticker-track">
-        <div class="ticker-items">
-          {% for skill in technical_skills %}<span class="ticker-item">{{ skill.name }}<span class="ticker-sep">✦</span></span>{% endfor %}
-          {% for tool in tools %}<span class="ticker-item">{{ tool.name }}<span class="ticker-sep">✦</span></span>{% endfor %}
-          {% for skill in technical_skills %}<span class="ticker-item">{{ skill.name }}<span class="ticker-sep">✦</span></span>{% endfor %}
-          {% for tool in tools %}<span class="ticker-item">{{ tool.name }}<span class="ticker-sep">✦</span></span>{% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     STATS
-═══════════════════════════════════════════════════════ -->
-<div class="stats-row">
-  <div class="stats-inner">
-    <div class="stat-block reveal"><div class="stat-num"><span data-count="{{ technical_skills.count }}">0</span><span class="stat-plus">+</span></div><div class="stat-label">Technologies</div></div>
-    <div class="stat-block reveal reveal-delay-1"><div class="stat-num"><span data-count="3">0</span></div><div class="stat-label">Years Studying IT</div></div>
-    <div class="stat-block reveal reveal-delay-2"><div class="stat-num"><span data-count="{{ all_projects.count }}">0</span></div><div class="stat-label">Projects Built</div></div>
-    <div class="stat-block reveal reveal-delay-3"><div class="stat-num avail-yes">Yes ✓</div><div class="stat-label">Open to Work</div></div>
+<!-- LOADING OVERLAY -->
+<div id="pageLoader" class="page-loader">
+  <div class="loader-inner">
+    <div class="loader-logo">CPG<span>.</span></div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════
-     ABOUT
-═══════════════════════════════════════════════════════ -->
-<section class="about section" id="about">
-  <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">01</span><span class="eyebrow-line"></span><span class="eyebrow-text">About Me</span></div>
-    <div class="about-grid">
-      <div class="about-left reveal">
-        <h2 class="section-heading">I build things for the <em>web</em> and beyond.</h2>
-        <div class="about-body">
-          <p>Hi there! I'm <strong>Cristian Paul Guillen</strong>, a 3rd-year Bachelor of Science in Information Technology student at <strong>Negros Oriental State University</strong>. I grew up in Villareal, Bayawan City — a small town that taught me resourcefulness and a love for problem-solving.</p>
-          <p>My journey into tech started in high school, driven by curiosity about how digital things work. Today I build web applications for school projects and continuously expand my skill set. I'm currently deepening my knowledge in Python while honing my existing skills in PHP, Java, and front-end technologies.</p>
-          <p>I believe great software is built with both technical skill and creative thinking. I'm eager to contribute to real-world projects and grow as a developer.</p>
-        </div>
-        <div class="info-table">
-          <div class="info-row"><span class="info-key">Birthday</span><span class="info-val">Aug 16, 2004</span></div>
-          <div class="info-row"><span class="info-key">Location</span><span class="info-val">Bayawan City, PH</span></div>
-          <div class="info-row"><span class="info-key">University</span><span class="info-val">NORSU — BSINT 3rd Year</span></div>
-          <div class="info-row"><span class="info-key">Status</span><span class="info-val available">Open to Work</span></div>
-          <div class="info-row"><span class="info-key">GitHub</span><span class="info-val">github.com/chan2s</span></div>
-        </div>
-        <div class="about-btns">
-          <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn-primary">Download CV ↓</a>
-          <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="btn-ghost">GitHub ↗</a>
+<!-- DARK MODE TOGGLE -->
+<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Dark mode">
+  <span class="toggle-icon">🌙</span>
+</button>
+
+<!-- HERO SECTION -->
+<section class="hero" id="hero">
+  <!-- Animated background grid -->
+  <div class="hero-grid-bg" aria-hidden="true">
+    <div class="grid-line" style="--i:1"></div>
+    <div class="grid-line" style="--i:2"></div>
+    <div class="grid-line" style="--i:3"></div>
+    <div class="grid-line" style="--i:4"></div>
+    <div class="grid-line" style="--i:5"></div>
+  </div>
+  <!-- Floating orb -->
+  <div class="hero-orb" aria-hidden="true"></div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge animate-fade-up" style="--delay:0.1s">
+        <span class="badge-dot"></span>
+        <span>AVAILABLE FOR WORK</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line animate-fade-up" style="--delay:0.2s">HI, I'M</span>
+        <span class="title-line title-name animate-fade-up" style="--delay:0.3s">CRISTIAN PAUL</span>
+        <span class="title-line title-accent animate-fade-up" style="--delay:0.4s">
+          GUILLEN
+          <span class="title-underline"></span>
+        </span>
+      </h1>
+      <div class="hero-role animate-fade-up" style="--delay:0.5s">
+        <span>Developer</span>
+        <span class="role-sep">✦</span>
+        <span>BSINT Student</span>
+        <span class="role-sep">✦</span>
+        <span>Bayawan</span>
+      </div>
+      <p class="hero-desc animate-fade-up" style="--delay:0.6s; display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3em;">
+        <span class="tl-word" style="--i:0">Nothing</span>
+        <span class="tl-word tl-em" style="--i:1">Changes</span>
+        <span class="tl-word" style="--i:2">If</span>
+        <span class="tl-word" style="--i:3">Nothing</span>
+        <span class="tl-word tl-em" style="--i:4">Changes.</span>
+      </p>
+      <div class="hero-buttons animate-fade-up" style="--delay:0.7s">
+        <a href="#projects" class="btn-primary">
+          <span>View Projects</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn-secondary">Get in Touch</a>
+      </div>
+      <div class="hero-tech-stack animate-fade-up" style="--delay:0.85s">
+        {% for skill in technical_skills|slice:":5" %}
+        <span class="tech-pill">{{ skill.name }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hero-right animate-fade-left" style="--delay:0.3s">
+      <div class="hero-image">
+        <div class="image-container">
+          <div class="image-glow"></div>
+          <img src="{% static 'img/profile1.png' %}" alt="Cristian Paul Guillen"/>
+          <div class="image-border"></div>
+          <div class="image-corner tl"></div>
+          <div class="image-corner tr"></div>
+          <div class="image-corner bl"></div>
+          <div class="image-corner br"></div>
         </div>
       </div>
-      <div class="about-right reveal reveal-delay-1">
-        <div class="goals-label">Career Interests &amp; Goals</div>
-        <div class="goals-list">
-          <div class="goal-item"><span class="goal-icon">→</span><div><div class="goal-title">Land My First Internship</div><p class="goal-desc">Gain real-world experience by working in an actual IT environment before graduating — applying what I've learned in school to real projects.</p></div></div>
-          <div class="goal-item"><span class="goal-icon">→</span><div><div class="goal-title">Improve My Web Dev Skills</div><p class="goal-desc">Get better at building complete web apps — from the frontend all the way to the backend and database — using Django, PHP, and Java.</p></div></div>
-          <div class="goal-item"><span class="goal-icon">→</span><div><div class="goal-title">Graduate &amp; Give Back to Bayawan</div><p class="goal-desc">Finish my BSINT degree at NORSU and use my skills to help local businesses and communities in Bayawan City through technology.</p></div></div>
+
+      <!-- Python Code Card -->
+      <div class="code-card">
+        <div class="code-header">
+          <span class="code-dot red"></span>
+          <span class="code-dot yellow"></span>
+          <span class="code-dot green"></span>
+          <span class="code-title">Paul.py</span>
+          <span class="code-lang-badge">Python</span>
+        </div>
+        <div class="code-content">
+          <pre><code><span class="code-keyword">class</span> <span class="code-class">Paul</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self):
+        self.name = <span class="code-string">"Cristian Paul"</span>
+        self.role = <span class="code-string">"Student"</span>
+        self.skills = [<span class="code-string">"Python"</span>, <span class="code-string">"PHP"</span>, <span class="code-string">"Java"</span>]
+
+    <span class="code-keyword">def</span> <span class="code-function">build</span>(self, project):
+        <span class="code-keyword">return</span> <span class="code-string">f"Building {project}..."</span>
+
+    <span class="code-keyword">def</span> <span class="code-function">status</span>(self):
+        <span class="code-keyword">return</span> <span class="code-string">"Available for work"</span>
+<span class="code-variable">me</span> = <span class="code-class">Paul</span>()
+<span class="code-variable">CurrentlyBuilding</span> = <span class="code-class">"Web Based Cebu Mini Hotel"</span>
+
+<span class="code-function">print</span>(me.build(CurrentlyBuilding))</code></pre>
+        </div>
+        <!-- Blinking cursor at bottom of code -->
+        <div class="code-cursor-line">
+          <span class="code-prompt">›</span>
+          <span class="code-blink-cursor"></span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-number" data-count="{{ technical_skills.count }}">0</div>
+          <div class="stat-label">Technologies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-count="{{ all_projects.count }}">0</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3<span class="stat-suffix">rd</span></div>
+          <div class="stat-label">Year Student</div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     EDUCATION
-═══════════════════════════════════════════════════════ -->
-<section class="education section" id="education">
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
   <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">02</span><span class="eyebrow-line"></span><span class="eyebrow-text">Education</span></div>
-    <div class="edu-grid">
-      <div class="edu-heading-col reveal">
-        <h2 class="section-heading">Academic<br><em>Journey</em></h2>
-        <p class="edu-sub-desc">From a small elementary school in Villareal to a university IT program — each step built the curiosity and discipline that drives my work today.</p>
-      </div>
-      <div class="edu-timeline-col">
-        {% for entry in education %}
-        <div class="edu-entry reveal {% if not forloop.first %}reveal-delay-1{% endif %}">
-          <div class="edu-year-badge">{{ entry.year_range }}</div>
-          <div class="edu-entry-body">
-            <span class="edu-name">{{ entry.institution }}{% if entry.is_current %}<span class="current-badge">Current</span>{% endif %}</span>
-            <span class="edu-degree">{{ entry.degree }}</span>
-            {% if entry.location %}<span class="edu-loc">{{ entry.location }}</span>{% endif %}
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p>Hi, I'm <strong>Cristian Paul Guillen</strong> — a 3rd-year BSINT student at Negros Oriental State University, based in Bayawan City.</p>
+<p>My interest in technology started from curiosity, and I’ve been learning how to build web applications that solve real problems. I work with PHP, Python, Download CV, and modern front-end technologies to create functional and user-friendly systems.</p>
+<p>I am currently seeking internship opportunities where I can gain experience, improve my skills, and contribute to real-world development projects.</p>
+        <div class="about-info">
+          <div class="info-item">
+            <span class="info-label">Location</span>
+            <span class="info-value">Bayawan City, Philippines</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">University</span>
+            <span class="info-value">NORSU - BSINT</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Birthday</span>
+            <span class="info-value">August 16, 2004</span>
           </div>
         </div>
-        {% empty %}<p style="color:var(--text-3)">No education records found.</p>{% endfor %}
+        {% comment %} <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn-outline">
+          Download CV
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M3 6l4 4 4-4M2 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a> {% endcomment %}
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     PROJECTS
-═══════════════════════════════════════════════════════ -->
-<section class="projects section" id="projects">
-  <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">03</span><span class="eyebrow-line"></span><span class="eyebrow-text">Featured Work</span></div>
-    <div class="projects-header reveal">
-      <h2 class="section-heading">Selected<br>Projects</h2>
-      <a href="https://github.com/chan2s" target="_blank" rel="noopener" class="see-all">All on GitHub ↗</a>
-    </div>
-  </div>
-
-  {% if featured_project %}
-  <div class="project-featured reveal">
-    <div class="project-featured-visual">
-      <div class="mockup-window">
-        <div class="mw-bar"><div class="mw-dot"></div><div class="mw-dot"></div><div class="mw-dot"></div></div>
-        <div class="mw-body">
-          <div class="mw-row"></div><div class="mw-row-sm"></div>
-          <div class="mw-grid"><div class="mw-card"></div><div class="mw-card"></div><div class="mw-card"></div></div>
-          <div class="mw-row-sm" style="width:40%;margin-top:.5rem"></div><div class="mw-row"></div>
-        </div>
-      </div>
-    </div>
-    <div class="project-featured-info">
-      <div>
-        <div class="project-tags">
-          <span class="tag tag-accent">Featured</span>
-          <span class="tag">{{ featured_project.get_category_display }}</span>
-          {% for tech in featured_project.get_tech_list %}<span class="tag">{{ tech }}</span>{% endfor %}
-        </div>
-        <h3 class="project-title">{{ featured_project.title }}</h3>
-        {% if featured_project.problem_statement or featured_project.process_description or featured_project.result_description %}
-        <div class="project-case">
-          {% if featured_project.problem_statement %}<div class="case-block"><span class="case-label">Problem</span><p class="case-text">{{ featured_project.problem_statement }}</p></div>{% endif %}
-          {% if featured_project.process_description %}<div class="case-block"><span class="case-label">Process</span><p class="case-text">{{ featured_project.process_description }}</p></div>{% endif %}
-          {% if featured_project.result_description %}<div class="case-block"><span class="case-label">Result</span><p class="case-text">{{ featured_project.result_description }}</p></div>{% endif %}
-        </div>
-        {% else %}<p class="case-text" style="color:var(--text-2)">{{ featured_project.description }}</p>{% endif %}
-      </div>
-      {% if featured_project.github_url %}<a href="{{ featured_project.github_url }}" target="_blank" rel="noopener" class="project-link">View on GitHub ↗</a>{% endif %}
-    </div>
-  </div>
-  {% endif %}
-
-  <div class="projects-grid">
-    {% for project in other_projects %}
-    <div class="proj-card reveal {% if not forloop.first %}reveal-delay-{{ forloop.counter }}{% endif %}">
-      <div class="proj-card-top">
-        <span class="proj-index">0{{ forloop.counter|add:1 }}</span>
-        {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" rel="noopener" class="proj-arrow">↗</a>
-        {% elif project.live_url %}<a href="{{ project.live_url }}" target="_blank" rel="noopener" class="proj-arrow">↗</a>
-        {% else %}<div class="proj-arrow">↗</div>{% endif %}
-      </div>
-      <div class="proj-card-tags">{% for tech in project.get_tech_list %}<span class="proj-tag">{{ tech }}</span>{% endfor %}</div>
-      <h3 class="proj-title">{{ project.title }}</h3>
-      <p class="proj-desc">{{ project.description }}</p>
-    </div>
-    {% empty %}<p style="color:var(--text-3);padding:2rem">No additional projects yet.</p>{% endfor %}
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     SKILLS
-═══════════════════════════════════════════════════════ -->
-<section class="skills section" id="skills">
-  <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">04</span><span class="eyebrow-line"></span><span class="eyebrow-text">Tech Stack & Skills</span></div>
-    <div class="skills-grid">
-
-      <div class="skills-col reveal">
-        <div class="skills-col-title">Technical Skills</div>
-        <div class="skill-bar-list">
+      <div class="about-core reveal-right">
+        <h3>Core Expertise</h3>
+        <div class="core-grid">
           {% for skill in technical_skills %}
-          <div class="skill-item" data-proficiency="{{ skill.proficiency }}">
-            <!-- SVG arc meter (top-right) -->
-            <div class="skill-arc">
-              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                <circle class="skill-arc-track" cx="18" cy="18" r="14"/>
-                <circle class="skill-arc-fill"  cx="18" cy="18" r="14"/>
-              </svg>
-              <!-- percentage label inside arc -->
-              <span class="skill-pct">{{ skill.proficiency }}</span>
+          <div class="core-card" data-skill="{{ skill.name }}">
+            <div class="core-icon">
+              {% if skill.name == "Python" %}<i class="fab fa-python"></i>
+              {% elif skill.name == "PHP" %}<i class="fab fa-php"></i>
+              {% elif skill.name == "Django" %}<i class="fab fa-python"></i>
+              {% elif skill.name == "JavaScript" %}<i class="fab fa-js"></i>
+              {% elif skill.name == "HTML5" or skill.name == "HTML" %}<i class="fab fa-html5"></i>
+              {% elif skill.name == "CSS3" or skill.name == "CSS" %}<i class="fab fa-css3-alt"></i>
+              {% elif skill.name == "Java" %}<i class="fab fa-java"></i>
+              {% elif skill.name == "C++" %}<i class="fas fa-code"></i>
+              {% elif skill.name == "Git" %}<i class="fab fa-git-alt"></i>
+              {% elif skill.name == "GitHub" %}<i class="fab fa-github"></i>
+              {% elif skill.name == "React" %}<i class="fab fa-react"></i>
+              {% elif skill.name == "Node.js" or skill.name == "Node" %}<i class="fab fa-node-js"></i>
+              {% else %}<i class="fas fa-code"></i>{% endif %}
             </div>
-            <!-- Skill name -->
-            <span class="skill-name">{{ skill.name }}</span>
-            <!-- Level label or learning badge -->
-            {% if skill.is_learning %}
-              <span class="learning-tag">Learning</span>
-            {% else %}
-              <span class="skill-level">
-                {% if skill.proficiency >= 80 %}Expert
-                {% elif skill.proficiency >= 60 %}Proficient
-                {% elif skill.proficiency >= 40 %}Developing
-                {% else %}Beginner{% endif %}
-              </span>
-            {% endif %}
+            <div class="core-name">{{ skill.name }}</div>
+            <div class="core-level">
+              <div class="level-dots">
+                {% with ''|center:5 as range %}
+                {% for i in range %}
+                <span class="dot {% if forloop.counter <= skill.proficiency|add:19|divisibleby:20 %}active{% endif %}"></span>
+                {% endfor %}
+                {% endwith %}
+              </div>
+            </div>
           </div>
           {% endfor %}
         </div>
-
-        <div class="tools-wrap">
-          <div class="tools-label">Tools & Environments</div>
-          <div class="tools-list">{% for tool in tools %}<span class="tool">{{ tool.name }}</span>{% endfor %}</div>
-        </div>
       </div>
-
-      <div class="skills-col reveal reveal-delay-1">
-        <div class="skills-col-title">Professional Skills</div>
-        {% for skill in professional_skills %}
-        <div class="soft-item">
-          <span class="soft-num">0{{ forloop.counter }}</span>
-          <div><div class="soft-name">{{ skill.name }}</div><p class="soft-desc">{{ skill.description }}</p></div>
-        </div>
-        {% endfor %}
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     GITHUB
-═══════════════════════════════════════════════════════ -->
-<section class="section github-contrib" id="github">
+<!-- SKILLS SECTION -->
+<section class="skills" id="skills">
   <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">05</span><span class="eyebrow-line"></span><span class="eyebrow-text">GitHub Activity</span></div>
-    <div class="contrib-wrapper reveal">
-      <div class="contrib-header"><span class="contrib-title">Contribution Graph · chan2s</span><a href="https://github.com/chan2s" target="_blank" rel="noopener" class="see-all">View Profile ↗</a></div>
-      <div class="contrib-graph"><img src="https://ghchart.rshah.org/e8ff47/chan2s" alt="GitHub contribution graph for chan2s" loading="lazy"/></div>
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-category reveal-up" style="--stagger:0">
+        <h3><span class="cat-icon">⌨</span> Languages & Frameworks</h3>
+        <div class="skills-chips">
+          {% for skill in technical_skills %}
+          <div class="skill-chip">{{ skill.name }}</div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="skills-category reveal-up" style="--stagger:1">
+        <h3><span class="cat-icon">🔧</span> Tools & Environments</h3>
+        <div class="skills-chips">
+          {% for tool in tools %}
+          <div class="skill-chip">{{ tool.name }}</div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="skills-category reveal-up" style="--stagger:2">
+        <h3><span class="cat-icon">💡</span> Professional Skills</h3>
+        <div class="soft-skills">
+          {% for skill in professional_skills %}
+          <div class="soft-skill">
+            <div class="soft-skill-name">{{ skill.name }}</div>
+            <div class="soft-skill-desc">{{ skill.description }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════
-     CONTACT
-═══════════════════════════════════════════════════════ -->
-<section class="contact section" id="contact">
+<!-- PROJECTS SECTION -->
+<section class="projects" id="projects">
   <div class="container">
-    <div class="section-eyebrow reveal"><span class="eyebrow-num">06</span><span class="eyebrow-line"></span><span class="eyebrow-text">Get In Touch</span></div>
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Featured Work</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      {% if featured_project %}
+      <div class="project-card featured reveal-up">
+        <div class="project-number">01</div>
+        <div class="project-tags">
+          <span class="tag featured-tag">Featured</span>
+          {% for tech in featured_project.get_tech_list %}
+          <span class="tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        <h3 class="project-title">{{ featured_project.title }}</h3>
+        <p class="project-desc">{{ featured_project.description }}</p>
+        {% if featured_project.github_url %}
+        <a href="{{ featured_project.github_url }}" target="_blank" class="project-link">
+          View Project
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        {% endif %}
+        <div class="project-card-glow"></div>
+      </div>
+      {% endif %}
+
+      {% for project in other_projects %}
+      <div class="project-card reveal-up" style="--stagger:{{ forloop.counter }}">
+        <div class="project-number">0{{ forloop.counter|add:1 }}</div>
+        <div class="project-tags">
+          {% for tech in project.get_tech_list %}
+          <span class="tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-desc">{{ project.description }}</p>
+        {% if project.github_url %}
+        <a href="{{ project.github_url }}" target="_blank" class="project-link">
+          View Project
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        {% endif %}
+        <div class="project-card-glow"></div>
+      </div>
+      {% empty %}
+      {% if not featured_project %}
+      <p class="no-projects">No projects yet. Check back soon!</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="projects-footer reveal-up">
+      <a href="https://github.com/chan2s" target="_blank" class="btn-outline">
+        View All on GitHub
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION SECTION -->
+<section class="education" id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      {% for entry in education %}
+      <div class="timeline-item reveal-up" style="--stagger:{{ forloop.counter }}">
+        <div class="timeline-left">
+          <div class="timeline-year">{{ entry.year_range }}</div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        </div>
+        <div class="timeline-content">
+          <h3>{{ entry.institution }}</h3>
+          <p>{{ entry.degree }}</p>
+          {% if entry.location %}
+          <span class="timeline-location"><i class="fas fa-map-marker-alt"></i> {{ entry.location }}</span>
+          {% endif %}
+          {% if entry.is_current %}
+          <span class="current-badge"><span class="current-dot"></span>Current</span>
+          {% endif %}
+        </div>
+      </div>
+      {% empty %}
+      <p>No education records found.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB SECTION -->
+<section class="github" id="github">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">GitHub Activity</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="github-card reveal-up">
+      <div class="github-header">
+        <div class="github-user-info">
+          <i class="fab fa-github github-icon"></i>
+          <span class="github-username">chan2s</span>
+        </div>
+        <a href="https://github.com/chan2s" target="_blank" class="github-link">
+          View Profile
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="github-graph">
+        <img src="https://ghchart.rshah.org/e8250a/chan2s" alt="GitHub contribution graph" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="section-line"></div>
+    </div>
     <div class="contact-grid">
-      <div class="contact-left reveal">
-        <h2 class="contact-heading">Let's Build<span class="hi">Together.</span></h2>
-        <p class="contact-subtext">Open to internship opportunities, freelance projects, academic collaborations, or just a great conversation about tech.</p>
-        <div class="contact-links">
-          <div class="contact-link-row"><div><div class="clink-label">Email</div><a href="mailto:cristianpaulguillen74@gmail.com" class="clink-val">cristianpaulguillen74@gmail.com</a></div><span class="clink-arrow">↗</span></div>
-          <div class="contact-link-row"><div><div class="clink-label">GitHub</div><a href="https://github.com/chan2s" target="_blank" rel="noopener" class="clink-val">github.com/chan2s</a></div><span class="clink-arrow">↗</span></div>
-          <div class="contact-link-row"><div><div class="clink-label">Location</div><span class="clink-val">Bayawan City, Negros Oriental</span></div><span class="clink-arrow">→</span></div>
+      <div class="contact-info reveal-left">
+        <h3>Let's work<br><em>together</em></h3>
+        <p>Open for internships, freelance projects, or just a conversation about tech. I'm always excited to connect with new people and explore opportunities.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon-wrap"><i class="fas fa-envelope"></i></span>
+            <a href="mailto:cristianpaulguillen74@gmail.com">cristianpaulguillen74@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon-wrap"><i class="fab fa-github"></i></span>
+            <a href="https://github.com/chan2s" target="_blank">github.com/chan2s</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></span>
+            <span>Bayawan City, Negros Oriental</span>
+          </div>
         </div>
       </div>
-      <div class="contact-right reveal reveal-delay-1">
-        <div id="csrf-token" data-token="{% csrf_token %}"></div>
-        <form class="contact-form-inner" id="contactForm" novalidate>
-          {% csrf_token %}
-          <div class="form-row-2">
-            <div class="field"><label for="fname">Full Name</label><input type="text" id="fname" name="full_name" placeholder="Your name" required/></div>
-            <div class="field"><label for="femail">Email Address</label><input type="email" id="femail" name="email" placeholder="you@email.com" required/></div>
+      <form class="contact-form reveal-right" id="contactForm" novalidate>
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your name</label>
+            <input type="text" name="full_name" placeholder="John Doe" required>
           </div>
-          <div class="field"><label for="fsubject">Subject</label>
-            <select id="fsubject" name="subject">
-              <option value="">Select a topic...</option>
-              <option>Internship Opportunity</option><option>Project Collaboration</option><option>Freelance Work</option><option>Just Saying Hi</option>
-            </select>
+          <div class="form-group">
+            <label class="form-label">Email address</label>
+            <input type="email" name="email" placeholder="john@example.com" required>
           </div>
-          <div class="field"><label for="fmessage">Message</label><textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea></div>
-          <div id="form-feedback" style="display:none"></div>
-          <button type="submit" class="submit-btn" id="submitBtn"><span id="btnText">Send Message</span><span id="btnIcon">↗</span></button>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Topic</label>
+          <select name="subject">
+            <option value="">Select a topic...</option>
+            <option>Internship Opportunity</option>
+            <option>Project Collaboration</option>
+            <option>Freelance Work</option>
+            <option>Just Saying Hi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+        </div>
+        <div id="form-feedback" style="display:none"></div>
+        <button type="submit" class="btn-primary btn-full">
+          <span>Send Message</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
     </div>
   </div>
 </section>
