@@ -223,7 +223,7 @@ Then click **Reload** on the PythonAnywhere Web tab.
 
 **Cristian Paul Guillen**
 - GitHub: [@chan2s](https://github.com/chan2s)
-- Email: cpguillen@email.com
+- Email: cristianpaulguillen74@gmail.com
 - Location: Bayawan City, Negros Oriental, Philippines
 - University: NORSU-BSC — BSIT 3rd Year
 
