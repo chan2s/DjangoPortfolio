@@ -42,11 +42,10 @@
         </span>
       </h1>
       <div class="hero-role animate-fade-up" style="--delay:0.5s">
-        <span>Developer</span>
-        <span class="role-sep">✦</span>
+        <span class="role-sep">✦</span>  
         <span>BSINT Student</span>
         <span class="role-sep">✦</span>
-        <span>Bayawan</span>
+        <span>Norsu=Bsc</span>
       </div>
       <p class="hero-desc animate-fade-up" style="--delay:0.6s; display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3em;">
         <span class="tl-word" style="--i:0">Nothing</span>
@@ -62,11 +61,11 @@
         </a>
         <a href="#contact" class="btn-secondary">Get in Touch</a>
       </div>
-      <div class="hero-tech-stack animate-fade-up" style="--delay:0.85s">
+      {% comment %} <div class="hero-tech-stack animate-fade-up" style="--delay:0.85s">
         {% for skill in technical_skills|slice:":5" %}
         <span class="tech-pill">{{ skill.name }}</span>
         {% endfor %}
-      </div>
+      </div> {% endcomment %}
     </div>
 
     <div class="hero-right animate-fade-left" style="--delay:0.3s">
@@ -93,7 +92,7 @@
         <div class="code-content">
           <pre><code><span class="code-keyword">class</span> <span class="code-class">Paul</span>:
     <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self):
-        self.name = <span class="code-string">"Cristian Paul"</span>
+        self.name = <span class="code-string">"Cristian Paul Guillen"</span>
         self.role = <span class="code-string">"Student"</span>
         self.skills = [<span class="code-string">"Python"</span>, <span class="code-string">"PHP"</span>, <span class="code-string">"Java"</span>]
 
@@ -146,8 +145,8 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal-left">
-        <p>Hi, I'm <strong>Cristian Paul Guillen</strong> — a 3rd-year BSINT student at Negros Oriental State University, based in Bayawan City.</p>
-        <p>My interest in technology started from curiosity, and I've been learning how to build web applications that solve real problems. I work with PHP, Python, and modern front-end technologies to create functional and user-friendly systems.</p>
+        <p>Hi, I'm <strong>Cristian Paul Guillen</strong> — a 3rd-year BSINT student at Negros Oriental State University-BSC.</p>
+        <p>My interest in technology started from curiosity, and I've been learning how to build web applications that solve real problems. I work with PHP, Java, and modern front-end technologies to create functional and user-friendly systems.</p>
         <p>I am currently seeking internship opportunities where I can gain experience, improve my skills, and contribute to real-world development projects.</p>
         <div class="about-info">
           <div class="info-item">
@@ -212,7 +211,7 @@
     </div>
     <div class="skills-grid">
       <div class="skills-category reveal-up" style="--stagger:0">
-        <h3><span class="cat-icon">⌨</span> Languages & Frameworks</h3>
+        <h3><span class="cat-icon"></span> Languages & Frameworks</h3>
         <div class="skills-chips">
           {% for skill in technical_skills %}
           <div class="skill-chip">{{ skill.name }}</div>
@@ -220,7 +219,7 @@
         </div>
       </div>
       <div class="skills-category reveal-up" style="--stagger:1">
-        <h3><span class="cat-icon">🔧</span> Tools & Environments</h3>
+        <h3><span class="cat-icon"></span> Tools & Environments</h3>
         <div class="skills-chips">
           {% for tool in tools %}
           <div class="skill-chip">{{ tool.name }}</div>
@@ -228,7 +227,7 @@
         </div>
       </div>
       <div class="skills-category reveal-up" style="--stagger:2">
-        <h3><span class="cat-icon">💡</span> Professional Skills</h3>
+        <h3><span class="cat-icon"></span> Professional Skills</h3>
         <div class="soft-skills">
           {% for skill in professional_skills %}
           <div class="soft-skill">
