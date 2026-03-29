@@ -45,7 +45,7 @@
         <span class="role-sep">✦</span>  
         <span>BSINT Student</span>
         <span class="role-sep">✦</span>
-        <span>Norsu=Bsc</span>
+        {% comment %} <span>Norsu=Bsc</span> {% endcomment %}
       </div>
       <p class="hero-desc animate-fade-up" style="--delay:0.6s; display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3em;">
         <span class="tl-word" style="--i:0">Nothing</span>
@@ -163,7 +163,7 @@
           </div>
         </div>
       </div>
-      <div class="about-core reveal-right">
+      {% comment %} <div class="about-core reveal-right">
         <h3>Core Expertise</h3>
         <div class="core-grid">
           {% for skill in technical_skills %}
@@ -177,7 +177,7 @@
               {% elif skill.name == "CSS3" or skill.name == "CSS" %}<i class="fab fa-css3-alt"></i>
               {% elif skill.name == "Java" %}<i class="fab fa-java"></i>
               {% elif skill.name == "C++" %}<i class="fas fa-code"></i>
-              {% elif skill.name == "Git" %}<i class="fab fa-git-alt"></i>
+              {% elif skill.name == "Git" %}<i class="fab fa-git-alt">  </i>
               {% elif skill.name == "GitHub" %}<i class="fab fa-github"></i>
               {% elif skill.name == "React" %}<i class="fab fa-react"></i>
               {% elif skill.name == "Node.js" or skill.name == "Node" %}<i class="fab fa-node-js"></i>
@@ -196,7 +196,7 @@
           </div>
           {% endfor %}
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
 </section>
