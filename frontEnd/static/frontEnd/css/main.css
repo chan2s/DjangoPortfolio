@@ -204,27 +204,18 @@ button {
 
 /* ============================================================
    PILL NAV
-   Faithful vanilla port of the PillNav React component.
    ============================================================ */
-
-/* Color tokens (light) */
 :root {
   --pill-base: #0d0d0d;
-  /* logo bg, circle fill, mobile bg */
   --pill-bg: #f0efeb;
-  /* individual pill background      */
   --pill-text: #0d0d0d;
-  /* pill label colour               */
   --pill-hover-text: #f0efeb;
-  /* label colour after fill         */
   --pill-hire-bg: #dc2626;
-  /* "Let's talk" button             */
   --pill-h: 42px;
   --pill-pad-x: 18px;
   --pill-gap: 3px;
 }
 
-/* Dark overrides */
 [data-theme="dark"] {
   --pill-base: #f0efeb;
   --pill-bg: #1a1a1a;
@@ -232,7 +223,6 @@ button {
   --pill-hover-text: #0d0d0d;
 }
 
-/* ── Container ─────────────────────────────────────── */
 .pill-nav-container {
   position: fixed;
   top: 1.1rem;
@@ -243,16 +233,13 @@ button {
   max-width: calc(100vw - 2rem);
 }
 
-/* ── Nav bar ───────────────────────────────────────── */
 .pill-nav {
   display: flex;
   align-items: center;
   gap: 6px;
-  /* subtle drop shadow so it floats over hero */
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.14));
 }
 
-/* ── Logo pill ─────────────────────────────────────── */
 .pill-logo {
   width: var(--pill-h);
   height: var(--pill-h);
@@ -265,7 +252,6 @@ button {
   flex-shrink: 0;
   overflow: hidden;
   transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-  /* load animation */
   animation: pillLogoIn 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
@@ -287,14 +273,12 @@ button {
   color: var(--pill-hire-bg);
 }
 
-/* ── Nav items wrapper ─────────────────────────────── */
 .pill-nav-items {
   display: flex;
   align-items: center;
   height: var(--pill-h);
   background: var(--pill-base);
   border-radius: 9999px;
-  /* load animation */
   overflow: hidden;
   animation: pillBarIn 0.6s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -314,7 +298,6 @@ button {
   height: 100%;
 }
 
-/* ── Individual pill ───────────────────────────────── */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -333,11 +316,9 @@ button {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  /* clip the rising circle */
   isolation: isolate;
 }
 
-/* Rising circle (JS positions & scales this) */
 .hover-circle {
   position: absolute;
   left: 50%;
@@ -348,7 +329,6 @@ button {
   display: block;
   pointer-events: none;
   will-change: transform;
-  /* start hidden — JS sets size & scale(0) */
   transform: translateX(-50%) scale(0);
   transform-origin: 50% var(--circle-origin-y, 200px);
   transition:
@@ -362,7 +342,6 @@ button {
   transform: translateX(-50%) scale(1.25);
 }
 
-/* Label stack */
 .label-stack {
   position: relative;
   display: inline-block;
@@ -388,7 +367,6 @@ button {
   transform: translateY(150%);
 }
 
-/* On hover: slide default label up, hover label into view */
 .pill:hover .pill-label,
 .pill.is-filling .pill-label {
   transform: translateY(-150%);
@@ -399,7 +377,6 @@ button {
   transform: translateY(0);
 }
 
-/* Active indicator dot below pill */
 .pill.is-active::after {
   content: '';
   position: absolute;
@@ -413,7 +390,6 @@ button {
   z-index: 4;
 }
 
-/* ── Hire / Let's talk button ──────────────────────── */
 .hire-btn {
   display: inline-flex;
   align-items: center;
@@ -461,7 +437,6 @@ button {
   }
 }
 
-/* ── Hamburger (mobile) ────────────────────────────── */
 .mobile-menu-button {
   width: var(--pill-h);
   height: var(--pill-h);
@@ -486,7 +461,6 @@ button {
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Mobile popover ────────────────────────────────── */
 .mobile-menu-popover {
   position: absolute;
   top: calc(var(--pill-h) + 10px);
@@ -547,7 +521,6 @@ button {
   background: #b91c1c !important;
 }
 
-/* ── Responsive visibility ─────────────────────────── */
 .desktop-only {
   display: flex;
 }
@@ -583,7 +556,6 @@ button {
   }
 }
 
-/* ── Load animations ───────────────────────────────── */
 @keyframes pillLogoIn {
   from {
     transform: scale(0);
@@ -677,7 +649,6 @@ section {
   }
 }
 
-/* Scroll-reveal classes — JS adds .is-visible */
 .reveal-up,
 .reveal-left,
 .reveal-right {
@@ -717,7 +688,6 @@ section {
   overflow: hidden;
 }
 
-/* Animated background grid */
 .hero-grid-bg {
   position: absolute;
   inset: 0;
@@ -744,7 +714,6 @@ section {
   }
 }
 
-/* Floating orb */
 .hero-orb {
   position: absolute;
   top: -15%;
@@ -781,7 +750,6 @@ section {
   z-index: 1;
 }
 
-/* Hero content */
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -999,7 +967,6 @@ section {
   transform: translateY(-2px);
 }
 
-/* Hero Right */
 .hero-right {
   display: flex;
   flex-direction: column;
@@ -1074,7 +1041,6 @@ section {
   border-color: var(--accent);
 }
 
-/* Corner decorators */
 .image-corner {
   position: absolute;
   width: 16px;
@@ -2022,7 +1988,7 @@ section {
 }
 
 /* ============================================================
-   CONTACT
+   CONTACT — Redesigned
    ============================================================ */
 .contact {
   padding: 6rem 0;
@@ -2033,6 +1999,30 @@ section {
   grid-template-columns: 1fr 1.15fr;
   gap: 5rem;
   align-items: start;
+}
+
+/* ── Left: availability badge ── */
+.contact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.contact-status-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulseDot 2s ease infinite;
 }
 
 .contact-info h3 {
@@ -2057,10 +2047,10 @@ section {
   font-size: 0.975rem;
 }
 
+/* ── Contact link rows ── */
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .contact-item {
@@ -2069,7 +2059,12 @@ section {
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
-  transition: var(--transition-fast);
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.contact-item:first-child {
+  border-top: 1px solid var(--border);
 }
 
 .contact-item:hover {
@@ -2088,7 +2083,7 @@ section {
   font-size: 0.9rem;
   color: var(--accent);
   flex-shrink: 0;
-  transition: var(--transition-fast);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .contact-item:hover .contact-icon-wrap {
@@ -2097,30 +2092,101 @@ section {
   color: #fff;
 }
 
-.contact-item a {
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  transition: var(--transition-fast);
+.contact-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
 }
 
-.contact-item a:hover {
+.contact-item-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-item-body a,
+.contact-item-body span {
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.contact-item:hover .contact-item-body a {
   color: var(--accent);
 }
 
-.contact-item span {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
+.contact-item-arr {
+  color: var(--text-muted);
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact-item:hover .contact-item-arr {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* ── Right: form window ── */
+.contact-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+/* macOS-style chrome bar */
+.cf-chrome {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cf-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.cf-dot.red {
+  background: #ff5f56;
+}
+
+.cf-dot.yellow {
+  background: #ffbd2e;
+}
+
+.cf-dot.green {
+  background: #27c93f;
+}
+
+.cf-badge {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 10px;
 }
 
 /* Form */
 .contact-form {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  padding: 2rem;
+  padding: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 
 .form-row {
@@ -2145,7 +2211,6 @@ section {
 }
 
 .form-group input,
-.form-group select,
 .form-group textarea {
   width: 100%;
   padding: 0.8rem 1rem;
@@ -2165,20 +2230,60 @@ section {
 }
 
 .form-group input:focus,
-.form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
   background: var(--bg-primary);
 }
 
-.form-group select {
-  appearance: none;
-}
-
 .form-group textarea {
   resize: vertical;
   min-height: 120px;
+}
+
+/* Topic pills */
+.topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.topic-pill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.topic-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.topic-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Character counter */
+.char-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.char-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
 }
 
 #form-feedback {
@@ -2461,10 +2566,13 @@ section {
   }
 
   .contact-form {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 }
 
+/* ============================================================
+   MISC
+   ============================================================ */
 .tagline-word {
   opacity: 0;
   transform: translateY(16px);

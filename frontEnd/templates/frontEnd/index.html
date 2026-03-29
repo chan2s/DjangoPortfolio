@@ -18,7 +18,6 @@
 
 <!-- HERO SECTION -->
 <section class="hero" id="hero">
-  <!-- Animated background grid -->
   <div class="hero-grid-bg" aria-hidden="true">
     <div class="grid-line" style="--i:1"></div>
     <div class="grid-line" style="--i:2"></div>
@@ -26,7 +25,6 @@
     <div class="grid-line" style="--i:4"></div>
     <div class="grid-line" style="--i:5"></div>
   </div>
-  <!-- Floating orb -->
   <div class="hero-orb" aria-hidden="true"></div>
 
   <div class="hero-container">
@@ -84,7 +82,6 @@
         </div>
       </div>
 
-      <!-- Python Code Card -->
       <div class="code-card">
         <div class="code-header">
           <span class="code-dot red"></span>
@@ -110,7 +107,6 @@
 
 <span class="code-function">print</span>(me.build(CurrentlyBuilding))</code></pre>
         </div>
-        <!-- Blinking cursor at bottom of code -->
         <div class="code-cursor-line">
           <span class="code-prompt">›</span>
           <span class="code-blink-cursor"></span>
@@ -134,7 +130,6 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="scroll-indicator" aria-hidden="true">
     <div class="scroll-line"></div>
     <span>scroll</span>
@@ -152,8 +147,8 @@
     <div class="about-grid">
       <div class="about-text reveal-left">
         <p>Hi, I'm <strong>Cristian Paul Guillen</strong> — a 3rd-year BSINT student at Negros Oriental State University, based in Bayawan City.</p>
-<p>My interest in technology started from curiosity, and I’ve been learning how to build web applications that solve real problems. I work with PHP, Python, Download CV, and modern front-end technologies to create functional and user-friendly systems.</p>
-<p>I am currently seeking internship opportunities where I can gain experience, improve my skills, and contribute to real-world development projects.</p>
+        <p>My interest in technology started from curiosity, and I've been learning how to build web applications that solve real problems. I work with PHP, Python, and modern front-end technologies to create functional and user-friendly systems.</p>
+        <p>I am currently seeking internship opportunities where I can gain experience, improve my skills, and contribute to real-world development projects.</p>
         <div class="about-info">
           <div class="info-item">
             <span class="info-label">Location</span>
@@ -168,10 +163,6 @@
             <span class="info-value">August 16, 2004</span>
           </div>
         </div>
-        {% comment %} <a href="{% static 'frontEnd/resume.pdf' %}" download class="btn-outline">
-          Download CV
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M3 6l4 4 4-4M2 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a> {% endcomment %}
       </div>
       <div class="about-core reveal-right">
         <h3>Core Expertise</h3>
@@ -373,7 +364,9 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- ============================================================
+     CONTACT SECTION — Redesigned
+     ============================================================ -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-header">
@@ -381,57 +374,103 @@
       <h2 class="section-title">Get in Touch</h2>
       <div class="section-line"></div>
     </div>
+
     <div class="contact-grid">
+
+      <!-- LEFT: Info -->
       <div class="contact-info reveal-left">
-        <h3>Let's work<br><em>together</em></h3>
-        <p>Open for internships, freelance projects, or just a conversation about tech. I'm always excited to connect with new people and explore opportunities.</p>
+        <div class="contact-status">
+          <span class="contact-status-dot"></span>
+          Available for opportunities
+        </div>
+
+        <h3>Let's build<br>something<br><em>together</em></h3>
+        <p>Open for internships, freelance projects, or just a conversation about tech. I'm always excited to connect and explore what we can create.</p>
+
         <div class="contact-details">
           <div class="contact-item">
             <span class="contact-icon-wrap"><i class="fas fa-envelope"></i></span>
-            <a href="mailto:cristianpaulguillen74@gmail.com">cristianpaulguillen74@gmail.com</a>
+            <div class="contact-item-body">
+              <span class="contact-item-label">Email</span>
+              <a href="mailto:cristianpaulguillen74@gmail.com">cristianpaulguillen74@gmail.com</a>
+            </div>
+            <span class="contact-item-arr">↗</span>
           </div>
           <div class="contact-item">
             <span class="contact-icon-wrap"><i class="fab fa-github"></i></span>
-            <a href="https://github.com/chan2s" target="_blank">github.com/chan2s</a>
+            <div class="contact-item-body">
+              <span class="contact-item-label">GitHub</span>
+              <a href="https://github.com/chan2s" target="_blank">github.com/chan2s</a>
+            </div>
+            <span class="contact-item-arr">↗</span>
           </div>
           <div class="contact-item">
             <span class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></span>
-            <span>Bayawan City, Negros Oriental</span>
+            <div class="contact-item-body">
+              <span class="contact-item-label">Location</span>
+              <span>Bayawan City, Negros Oriental</span>
+            </div>
           </div>
         </div>
       </div>
-      <form class="contact-form reveal-right" id="contactForm" novalidate>
-        {% csrf_token %}
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Your name</label>
-            <input type="text" name="full_name" placeholder="John Doe" required>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap reveal-right">
+        <!-- macOS-style window chrome -->
+        <div class="cf-chrome">
+          <span class="cf-dot red"></span>
+          <span class="cf-dot yellow"></span>
+          <span class="cf-dot green"></span>
+          <span class="cf-badge">message.send()</span>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          {% csrf_token %}
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your name</label>
+              <input type="text" name="full_name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email address</label>
+              <input type="email" name="email" placeholder="john@example.com" required />
+            </div>
           </div>
+
+          <!-- Topic pills — replaces the boring <select> -->
           <div class="form-group">
-            <label class="form-label">Email address</label>
-            <input type="email" name="email" placeholder="john@example.com" required>
+            <label class="form-label">Topic</label>
+            <div class="topic-pills" id="topicPills">
+              <button type="button" class="topic-pill" data-value="Internship Opportunity" onclick="selectTopic(this)">Internship</button>
+              <button type="button" class="topic-pill" data-value="Project Collaboration"  onclick="selectTopic(this)">Collaboration</button>
+              <button type="button" class="topic-pill" data-value="Freelance Work"         onclick="selectTopic(this)">Freelance</button>
+              <button type="button" class="topic-pill" data-value="Just Saying Hi"         onclick="selectTopic(this)">Just saying hi</button>
+            </div>
+            <input type="hidden" name="subject" id="subjectHidden" />
           </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Topic</label>
-          <select name="subject">
-            <option value="">Select a topic...</option>
-            <option>Internship Opportunity</option>
-            <option>Project Collaboration</option>
-            <option>Freelance Work</option>
-            <option>Just Saying Hi</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Message</label>
-          <textarea name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
-        </div>
-        <div id="form-feedback" style="display:none"></div>
-        <button type="submit" class="btn-primary btn-full">
-          <span>Send Message</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </form>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" rows="5" maxlength="500"
+              placeholder="Tell me about your project or idea..."
+              required oninput="updateChar(this)"></textarea>
+            <div class="char-row">
+              <span class="char-count" id="charCount">0 / 500</span>
+            </div>
+          </div>
+
+          <div id="form-feedback" style="display:none"></div>
+
+          <button type="submit" class="btn-primary btn-full">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
     </div>
   </div>
 </section>

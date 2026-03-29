@@ -14,7 +14,6 @@
         setTimeout(() => loader.classList.remove('active'), 600);
     }
 
-    // Smooth scroll for anchor links with loader flash
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             const href = anchor.getAttribute('href');
@@ -29,7 +28,6 @@
         });
     });
 
-    // Hide loader on initial load
     window.addEventListener('load', () => {
         setTimeout(() => loader.classList.remove('active'), 250);
     });
@@ -62,9 +60,6 @@
 })();
 
 // ─── PillNav ─────────────────────────────────────────────────
-// Vanilla JS port of the PillNav React/GSAP component.
-// Replicates: circle-fill hover, label slide, logo spin,
-// hamburger X, mobile popover, active-on-scroll, load anim.
 (function () {
     const pills = document.querySelectorAll('.pill');
     const hamburger = document.getElementById('hamburgerBtn');
@@ -72,26 +67,21 @@
     const pillLogo = document.getElementById('pillLogo');
     if (!pills.length) return;
 
-    // Duration variables injected per-pill
     const ENTER_DUR = '0.28s';
     const LEAVE_DUR = '0.22s';
 
-    // ── Layout each pill's rising circle ──────────────────
     function layoutCircles() {
         pills.forEach(pill => {
             const circle = pill.querySelector('.hover-circle');
             if (!circle) return;
-
             const { width: w, height: h } = pill.getBoundingClientRect();
             const R = ((w * w) / 4 + h * h) / (2 * h);
             const D = Math.ceil(2 * R) + 2;
             const delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
             const originY = D - delta;
-
             circle.style.width = `${D}px`;
             circle.style.height = `${D}px`;
             circle.style.bottom = `-${delta}px`;
-            // Store origin so the CSS transition uses it
             pill.style.setProperty('--circle-origin-y', `${originY}px`);
         });
     }
@@ -100,7 +90,6 @@
     window.addEventListener('resize', layoutCircles, { passive: true });
     if (document.fonts?.ready) document.fonts.ready.then(layoutCircles).catch(() => { });
 
-    // ── Hover handlers ─────────────────────────────────────
     pills.forEach(pill => {
         pill.addEventListener('mouseenter', () => {
             pill.style.setProperty('--circle-dur', ENTER_DUR);
@@ -110,7 +99,6 @@
             pill.style.setProperty('--circle-dur', LEAVE_DUR);
             pill.classList.remove('is-filling');
         });
-        // Smooth-scroll on click (anchors start with #)
         pill.addEventListener('click', e => {
             const href = pill.getAttribute('href');
             if (href && href.startsWith('#')) {
@@ -121,7 +109,6 @@
         });
     });
 
-    // ── Logo spin on hover ─────────────────────────────────
     if (pillLogo) {
         pillLogo.addEventListener('mouseenter', () => {
             pillLogo.style.transition = 'transform 0.32s cubic-bezier(0.4,0,0.2,1)';
@@ -137,7 +124,6 @@
         });
     }
 
-    // ── Hamburger / mobile menu ────────────────────────────
     if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
             const isOpen = mobileMenu.classList.toggle('is-open');
@@ -151,7 +137,6 @@
             }
         });
 
-        // Close on mobile link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('is-open');
@@ -165,7 +150,6 @@
             });
         });
 
-        // Close on outside click
         document.addEventListener('click', e => {
             if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
                 mobileMenu.classList.remove('is-open');
@@ -174,16 +158,13 @@
         });
     }
 
-    // ── Active pill on scroll ──────────────────────────────
     const sections = document.querySelectorAll('section[id]');
-    const sectionMap = { about: '#about', projects: '#projects', skills: '#skills', contact: '#contact' };
 
     function setActive(id) {
         pills.forEach(pill => {
             const href = pill.getAttribute('href');
             pill.classList.toggle('is-active', href === `#${id}`);
         });
-        // mobile links too
         document.querySelectorAll('.mobile-menu-link').forEach(link => {
             link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
         });
@@ -208,7 +189,6 @@
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
             entry.target.classList.add('is-visible');
-            // For cards not using the reveal- classes, apply simple opacity fade
             if (!entry.target.classList.contains('reveal-up') &&
                 !entry.target.classList.contains('reveal-left') &&
                 !entry.target.classList.contains('reveal-right')) {
@@ -220,7 +200,6 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     els.forEach((el, i) => {
-        // For cards not using reveal- classes
         if (!el.classList.contains('reveal-up') &&
             !el.classList.contains('reveal-left') &&
             !el.classList.contains('reveal-right')) {
@@ -248,7 +227,6 @@
         function step(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             const current = Math.round(eased * target);
             el.innerHTML = current + suffixHTML;
@@ -276,7 +254,21 @@
     });
 })();
 
-// ─── Contact Form ────────────────────────────────────────────
+// ─── Contact: topic pill selector ───────────────────────────
+function selectTopic(el) {
+    document.querySelectorAll('.topic-pill').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    const hidden = document.getElementById('subjectHidden');
+    if (hidden) hidden.value = el.dataset.value;
+}
+
+// ─── Contact: live character counter ────────────────────────
+function updateChar(textarea) {
+    const counter = document.getElementById('charCount');
+    if (counter) counter.textContent = textarea.value.length + ' / 500';
+}
+
+// ─── Contact Form (AJAX) ─────────────────────────────────────
 (function () {
     const form = document.getElementById('contactForm');
     if (!form) return;
@@ -308,16 +300,23 @@
             feedback.style.display = 'block';
 
             if (data.success) {
-                feedback.style.cssText = 'display:block;background:#10b981;color:#fff;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.875rem;';
-                feedback.textContent = '✓ Message sent! I\'ll get back to you soon.';
+                feedback.style.cssText = 'display:block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#16a34a;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.85rem;font-family:var(--font-mono);';
+                feedback.textContent = '→ Message sent! I\'ll get back to you soon.';
                 form.reset();
+                // Reset topic pills and char count
+                document.querySelectorAll('.topic-pill').forEach(b => b.classList.remove('active'));
+                const hidden = document.getElementById('subjectHidden');
+                if (hidden) hidden.value = '';
+                const counter = document.getElementById('charCount');
+                if (counter) counter.textContent = '0 / 500';
             } else {
-                feedback.style.cssText = 'display:block;background:#ef4444;color:#fff;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.875rem;';
-                feedback.textContent = data.error || 'Something went wrong. Please try again.';
+                feedback.style.cssText = 'display:block;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.3);color:#dc2626;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.85rem;font-family:var(--font-mono);';
+                feedback.textContent = '→ ' + (data.error || 'Something went wrong. Please try again.');
             }
         } catch {
-            feedback.style.cssText = 'display:block;background:#ef4444;color:#fff;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.875rem;';
-            feedback.textContent = 'Network error. Please try again.';
+            feedback.style.display = 'block';
+            feedback.style.cssText = 'display:block;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.3);color:#dc2626;padding:0.875rem 1rem;border-radius:0.75rem;font-size:0.85rem;font-family:var(--font-mono);';
+            feedback.textContent = '→ Network error. Please try again.';
         } finally {
             submitBtn.innerHTML = originalHTML;
             submitBtn.disabled = false;
