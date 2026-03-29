@@ -1,4 +1,4 @@
-# Cristian Paul Guillen — Developer Portfolio
+# Cristian Paul Guillen — Student Portfolio
 
 A personal portfolio website built with Django, showcasing my projects, skills, and education as a 3rd Year BSIT student at Negros Oriental State University (NORSU-BSC), Bayawan City.
 
@@ -10,7 +10,6 @@ A personal portfolio website built with Django, showcasing my projects, skills, 
 
 ## Features
 
-- Responsive dark-themed editorial design
 - Dynamic content powered by Django models and SQLite
 - Animated skill bars, typed text effect, stat counters
 - GitHub contribution graph
